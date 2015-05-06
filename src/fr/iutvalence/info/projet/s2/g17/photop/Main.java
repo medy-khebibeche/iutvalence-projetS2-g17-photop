@@ -9,12 +9,12 @@ public class Main
 {
 
 	/**
-	 * 
+	 * a array of String
 	 * @param args
 	 */
 	public static void main(String[] args)
 	{
-		
+		Photop.launch();
 
 	}
 
