@@ -11,9 +11,9 @@ public class HMIPhotop
 
 	public static void runHMI()
 	{
-		Window PhotopWindow = new Window();
+		Window photopWindow = new Window("Bonjour'",500,300);
 		
-		
+		photopWindow.DrawWindow();
 	}
 	
 
