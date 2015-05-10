@@ -3,8 +3,8 @@ package fr.iutvalence.info.projet.s2.g17.photop;
 /**
  * The main of the application
  * @author Medy
- *
  */
+
 public class Main
 {
 
@@ -14,7 +14,8 @@ public class Main
 	 */
 	public static void main(String[] args)
 	{
-		Photop.launch();
+		Photop photop = new Photop();
+		photop.launch();
 
 	}
 
