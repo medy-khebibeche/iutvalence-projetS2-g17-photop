@@ -3,7 +3,6 @@ import java.awt.Color;
 /**
  * The class text which is an heritage of the class Decoration
  * @author Medy
- *
  */
 public class Text extends Decoration
 {
@@ -11,6 +10,7 @@ public class Text extends Decoration
 	 * The font of the text
 	 */
 	private Font font;
+	
 	/**
 	 * The text typed by the user
 	 */
@@ -18,18 +18,19 @@ public class Text extends Decoration
 	
 	/**
 	 * The constructor of the class Text, which is an heritage of Decoration
-	 * @param colorOfTheDecoration
-	 * @param angleofTheDecoration
-	 * @param positionOfTheDecoration
-	 * @param dimensionOfTheDecoration
+	 * @param decorationColor the color of the text
+	 * @param decorationAngle the angle of the text
+	 * @param decorationPosition the position of the text
+	 * @param decorationDimension the dimension of the text
 	 */
-	public Text(Color colorOfTheDecoration, int angleofTheDecoration, Position positionOfTheDecoration, Dimension dimensionOfTheDecoration)
+	public Text(Color decorationColor, int decorationAngle, Position decorationPosition, Dimension decorationDimension)
 	{
-		super(colorOfTheDecoration, angleofTheDecoration, positionOfTheDecoration, dimensionOfTheDecoration);
+		super(decorationColor, decorationAngle, decorationPosition, decorationDimension);
 	}
+	
 	/**
 	 * Allow to change and set a new font
-	 * @param font
+	 * @param font the new font
 	 */
 	public void setFont(Font font)
 	{
@@ -37,4 +38,5 @@ public class Text extends Decoration
 	}
 	
 	//Doit-on faire une autre méthode pour le texte ??? - Médy
+	
 }

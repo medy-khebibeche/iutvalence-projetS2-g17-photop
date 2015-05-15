@@ -32,7 +32,7 @@ public class Decoration extends Object
 	}
 	
 	/**
-	 * MThis method changes the color of a decoration with a given color
+	 * This method changes the color of a decoration with a given color
 	 * @param newColor the color to change
 	 */
 	public void changeColor(Color newColor)

@@ -1,6 +1,5 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
-
 /**
  * Represents an image :
  * an image has a name, an extension, an url and is saved or not
@@ -45,7 +44,5 @@ public class Image extends Object
 		this.imageExtension = imageExtension;
 		this.isSaved = isSaved;
 	}
-	
-	
 
 }

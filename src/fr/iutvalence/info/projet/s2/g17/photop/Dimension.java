@@ -48,7 +48,7 @@ public class Dimension
 	
 	/**
 	 * Increments the dimension with a given ratio
-	 * @param ratio 
+	 * @param ratio the given ratio 
 	 */
 	public void changeSize(int ratio)
 	{
