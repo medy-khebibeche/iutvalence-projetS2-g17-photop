@@ -1,52 +1,54 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
 import java.awt.Color;
-import java.awt.color.*;
+
 /**
  * Represents a decoration
+ * a decoration can be a frame, a shape (circle, square...) or a text
  * @author Jean-Baptiste
- *
  */
 public class Decoration extends Object
 {
 	/**
 	 * the color of the decoration
 	 */
-	private Color colorOfTheDecoration;
+	private Color decorationColor;
+	
 	/**
 	 * the angle of the decoration
 	 */
-	private int angleOfTheDecoration;
+	private Angle decorationAngle;
 
 	/**
 	 * the constructor of a decoration
-	 * @param colorOfTheDecoration
-	 * @param angleofTheDecoration
+	 * @param decorationColor the color of the decoration
+	 * @param decorationAngle the angle of the decoration
 	 */
-	public Decoration(Color colorOfTheDecoration, int angleofTheDecoration, Position positionOfTheDecoration, Dimension dimensionOfTheDecoration)
+	public Decoration(Color decorationColor, int decorationAngle, Position decorationPosition, Dimension decorationDimension)
 	{
-		super(positionOfTheDecoration,dimensionOfTheDecoration);
-		Angle angleOfDecoration = new Angle(angleofTheDecoration);
-		this.angleOfTheDecoration = angleofTheDecoration;
-		this.colorOfTheDecoration = colorOfTheDecoration;
-		
+		super(decorationPosition,decorationDimension);
+		this.decorationAngle = new Angle(decorationAngle);
+		this.decorationColor = decorationColor;
 	}
+	
 	/**
-	 * Method who changes the color of a decoration
-	 * @param newColor
+	 * MThis method changes the color of a decoration with a given color
+	 * @param newColor the color to change
 	 */
 	public void changeColor(Color newColor)
 	{
-		this.colorOfTheDecoration = newColor;
+		this.decorationColor = newColor;
 	}
+	
 	/**
-	 * Method who rotates the decoration
-	 * @param newAngle
+	 * This method rotates the decoration with a given angle
+	 * @param newAngle the angle to rotate
 	 */
-	public void rotationOfTheDecoration(int newAngle)
+	public void rotateDecoration(Angle newAngle)
 	{
-		this.angleOfTheDecoration =  this.angleOfTheDecoration + newAngle;
+		this.decorationAngle.rotate(newAngle);
 	}
+
 	
 	
 }
