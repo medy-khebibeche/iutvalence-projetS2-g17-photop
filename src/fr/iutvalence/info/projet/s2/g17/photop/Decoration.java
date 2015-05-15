@@ -7,7 +7,7 @@ import java.awt.color.*;
  * @author Jean-Baptiste
  *
  */
-public class Decoration
+public class Decoration extends Object
 {
 	/**
 	 * the color of the decoration
@@ -23,11 +23,13 @@ public class Decoration
 	 * @param colorOfTheDecoration
 	 * @param angleofTheDecoration
 	 */
-	public Decoration(Color colorOfTheDecoration, int angleofTheDecoration)
+	public Decoration(Color colorOfTheDecoration, int angleofTheDecoration, Position positionOfTheDecoration, Dimension dimensionOfTheDecoration)
 	{
+		super(positionOfTheDecoration,dimensionOfTheDecoration);
 		Angle angleOfDecoration = new Angle(angleofTheDecoration);
 		this.angleOfTheDecoration = angleofTheDecoration;
 		this.colorOfTheDecoration = colorOfTheDecoration;
+		
 	}
 	/**
 	 * Method who changes the color of a decoration
