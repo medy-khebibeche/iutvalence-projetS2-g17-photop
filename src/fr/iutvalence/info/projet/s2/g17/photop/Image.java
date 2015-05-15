@@ -10,22 +10,22 @@ public class Image extends Object
 {
 	
 	/**
-	 * the name of the image
+	 *represents the name of the image
 	 */
 	private String name;
 	
 	/**
-	 * the extension of the image (bmp, png, jpg)
+	 * represents the extension of the image (bmp, png, jpg)
 	 */
 	private String imageExtension;
 	
 	/**
-	 * reresent the state of the image, is it saved or not
+	 * represents the state of the image, is it saved or not
 	 */
 	private boolean isSaved;
 	
 	/**
-	 * the path of the image
+	 * represents the path of the image
 	 */
 	private String path;
 

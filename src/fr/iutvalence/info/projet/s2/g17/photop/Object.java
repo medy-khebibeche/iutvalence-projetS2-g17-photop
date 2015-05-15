@@ -1,29 +1,30 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
 /**
- * Represents an Object ( text, decoration etc...)
+ * Represents an Object, an Object can be an image or a decoration
+ * an Object has got a specific position and a specific dimension
  * @author Jean-Baptiste
- *
  */
-public class Object
+public abstract class Object
 {
 	/**
 	 *  the coordinate of the object
 	 */
-	private Position positionOfTheObject;
+	private Position objectPosition;
+	
 	/**
 	 * the dimension of the object
 	 */
-	private Dimension dimensionOfTheObject;
+	private Dimension objectDimension;
 	
 	/**
 	 * the constructor of an object
-	 * @param positionOfTheObject
-	 * @param dimensionOfTheObject
+	 * @param objectPosition the coordinate of the object
+	 * @param objectDimension the dimension of the object
 	 */
-	public Object(Position positionOfTheObject, Dimension dimensionOfTheObject)
+	protected Object(Position objectPosition, Dimension objectDimension)
 	{
-		this.positionOfTheObject = positionOfTheObject;
-		this.dimensionOfTheObject = dimensionOfTheObject;
+		this.objectPosition = objectPosition;
+		this.objectDimension = objectDimension;
 	}
 }
