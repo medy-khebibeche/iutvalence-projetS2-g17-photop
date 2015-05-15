@@ -1,7 +1,7 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 import java.awt.Color;
 /**
- * 
+ * The class text which is an heritage of the class Decoration
  * @author Medy
  *
  */
