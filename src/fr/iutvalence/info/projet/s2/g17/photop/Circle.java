@@ -1,20 +1,36 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
-
-import java.awt.Graphics;
-
-public class Circle extends Shape {
+//TODO javadoc
+public class Circle extends Shape 
+{
 	
-	// Methode utile dans Gaphics: drawOval et fillOval
-	
+//	/**
+//	 * X coordinate of circle
+//	 */
+//	private int x;
+//	
+//	/**
+//	 * Y coordinate of circle
+//	 */
+//	private int y;
+//	
+//	/**
+//	 * width of circle
+//	 */
+//	private int width;
+//
+//	/**
+//	 * height of circle
+//	 */
+//	private int height;
+//	
 	/**
-	 * coordinates of circle
+	 * 
+	 * @param objectPosition
+	 * @param objectDimension
 	 */
-	private int x;
-	private int y;
-	
-	/**
-	 * width and height of circle
-	 */
-	private int width;
-	private int height;
+	protected Circle(Position objectPosition, Dimension objectDimension)
+	{
+		super(objectPosition, objectDimension);
+		// TODO Auto-generated constructor stub
+	}
 }

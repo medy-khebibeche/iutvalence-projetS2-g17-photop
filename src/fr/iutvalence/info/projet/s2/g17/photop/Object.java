@@ -8,7 +8,7 @@ package fr.iutvalence.info.projet.s2.g17.photop;
 public abstract class Object
 {
 	/**
-	 *  the coordinate of the object
+	 * the coordinate of the object
 	 */
 	private Position objectPosition;
 	

@@ -1,8 +1,21 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
-import java.awt.Graphics;
 
-public class Triangle extends Shape {
 
-	// Dans la classe Graphics il y a une methode drawPolygon qui pourrait servir
+//TODO javadoc
+public class Triangle extends Shape 
+{
+
+	/**
+	 * 
+	 * @param objectPosition
+	 * @param objectDimension
+	 */
+	protected Triangle(Position objectPosition, Dimension objectDimension)
+	{
+		super(objectPosition, objectDimension);
+		// TODO Auto-generated constructor stub
+	}
+
+	
 }

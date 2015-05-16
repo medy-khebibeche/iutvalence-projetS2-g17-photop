@@ -1,17 +1,37 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
-public class Square extends Shape{
+//TODO javadoc
+/**
+ *
+ *
+ */
+public class Square extends Shape
+{
+	
+//
+//	/**
+//	 * coordinates of square
+//	 */
+//	private int x;
+//	//TODO javadoc
+//	private int y;
+//	
+//	/**
+//	 * width and height of Square
+//	 */
+//	private int width;
+//	//TODO javadoc
+//	private int height;
 	
 	/**
-	 * coordinates of square
+	 * 
+	 * @param objectPosition
+	 * @param objectDimension
 	 */
-	private int x;
-	private int y;
-	
-	/**
-	 * width and height of Square
-	 */
-	private int width;
-	private int height;
+	protected Square(Position objectPosition, Dimension objectDimension)
+	{
+		super(objectPosition, objectDimension);
+		// TODO Auto-generated constructor stub
+	}
 
 }
