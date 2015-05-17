@@ -1,6 +1,9 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
-//TODO javadoc
+/**
+ * 
+ *
+ */
 public class Rectangle extends Shape {
 	
 	// Methodes utile dans Graphics: drawRect et clearRect

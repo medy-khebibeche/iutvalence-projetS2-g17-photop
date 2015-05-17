@@ -1,8 +1,8 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
-//TODO javadoc
 /**
- *
+ * 
+ * @author Bastien
  *
  */
 public class Square extends Shape
@@ -10,17 +10,22 @@ public class Square extends Shape
 	
 //
 //	/**
-//	 * coordinates of square
+//	 * the x coordinate of the upper left corner of the oval to be drawn.
 //	 */
 //	private int x;
-//	//TODO javadoc
+//	/**
+//	 * the y coordinate of the upper left corner of the oval to be drawn.
+//	 */
 //	private int y;
 //	
 //	/**
-//	 * width and height of Square
+//	 * the width of the oval to be drawn.
 //	 */
 //	private int width;
-//	//TODO javadoc
+//	
+// /**
+//	 * the height of the oval to be drawn.
+//	 */
 //	private int height;
 	
 	/**
