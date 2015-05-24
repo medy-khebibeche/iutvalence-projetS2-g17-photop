@@ -69,7 +69,7 @@ public class Window extends JFrame
 		  private JMenuItem openFile = new JMenuItem("Ouvrir fichier");
 		  private JMenuItem closeFile = new JMenuItem("Fermer");
 		  
-		  private JMenuItem rotate = new JMenuItem("Tourner");
+		  private JMenuItem rotate = new JMenuItem("Rotation");
 		  private JMenuItem select = new JMenuItem("Selectionner");
 		  
 		  private JMenuItem circle = new JMenuItem("Rond");
