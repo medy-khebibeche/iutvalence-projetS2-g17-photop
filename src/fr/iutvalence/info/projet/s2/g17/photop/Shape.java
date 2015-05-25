@@ -2,10 +2,9 @@ package fr.iutvalence.info.projet.s2.g17.photop;
 
 import java.awt.Color;
 
-//TODO javadoc
-
 /**
  * 
+ * @author Bastien
  *
  */
 public abstract class Shape extends fr.iutvalence.info.projet.s2.g17.photop.PhotopObject

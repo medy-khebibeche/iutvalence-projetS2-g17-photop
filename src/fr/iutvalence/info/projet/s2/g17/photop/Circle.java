@@ -1,5 +1,10 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
-//TODO javadoc
+
+/**
+ * 
+ * @author Bastien
+ *
+ */
 public class Circle extends Shape 
 {
 	
