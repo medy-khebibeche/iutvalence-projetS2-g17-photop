@@ -7,7 +7,7 @@ import java.awt.Color;
  * a decoration can be a frame, a shape (circle, square...) or a text
  * @author Jean-Baptiste
  */
-public abstract class Decoration extends Object
+public abstract class Decoration extends PhotopObject
 {
 	/**
 	 * the color of the decoration

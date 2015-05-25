@@ -8,7 +8,7 @@ import java.awt.Color;
  * 
  *
  */
-public abstract class Shape extends fr.iutvalence.info.projet.s2.g17.photop.Object
+public abstract class Shape extends fr.iutvalence.info.projet.s2.g17.photop.PhotopObject
 {
 
 	/**
