@@ -5,7 +5,7 @@ package fr.iutvalence.info.projet.s2.g17.photop;
  * an Object has got a specific position and a specific dimension
  * @author Jean-Baptiste
  */
-public abstract class Object
+public abstract class PhotopObject
 {
 	/**
 	 * the coordinate of the object
@@ -22,7 +22,7 @@ public abstract class Object
 	 * @param objectPosition the coordinate of the object
 	 * @param objectDimension the dimension of the object
 	 */
-	protected Object(Position objectPosition, Dimension objectDimension)
+	protected PhotopObject(Position objectPosition, Dimension objectDimension)
 	{
 		this.objectPosition = objectPosition;
 		this.objectDimension = objectDimension;
