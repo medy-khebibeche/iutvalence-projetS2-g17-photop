@@ -206,21 +206,15 @@ public class TopMenuBar extends JMenuBar implements ActionListener
                     e.printStackTrace();
                 }
                 return;
+            }
 		}
-
-//		if (selectedItem == this.closeFile)
-//		{
-//			if (JOptionPane.showConfirmDialog(this.window, "Fermer l'application ?", "Confirmation", JOptionPane.OK_CANCEL_OPTION,
-//					JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
-//			{
-//				this.window.dispose();
-//			}
-//			return;
-//			
-//		}
-		
-		
-	}
+		if (selectedItem == this.closeFile)
+		{
+			if (JOptionPane.showConfirmDialog(this.window, "Fermer l'application ?", "Confirmation", JOptionPane.OK_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
+				this.window.dispose();
+			return;
+		}
 		
 }
 }
