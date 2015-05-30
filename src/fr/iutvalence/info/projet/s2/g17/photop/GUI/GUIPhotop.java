@@ -1,6 +1,8 @@
 package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 
 
+
+
 import javax.swing.JFrame;
 //TODO javadoc
 import javax.swing.WindowConstants;
@@ -19,6 +21,8 @@ public class GUIPhotop implements Runnable
 	public GUIPhotop (Photop photop)
 	{
 		this.photop = photop;
+		
+
 	}
 		
 		  private void GUIPhotopCreator()
@@ -32,6 +36,7 @@ public class GUIPhotop implements Runnable
 
 			  this.window.setJMenuBar(new TopMenuBar(this.window));
 			  this.window.setVisible(true);
+			  
 		  }
 
 

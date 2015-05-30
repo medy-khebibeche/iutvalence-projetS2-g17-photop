@@ -1,14 +1,18 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
+import java.awt.Graphics;
+
+
+
 /**
  * 
  * @author Bastien
  *
  */
-public class Circle extends Shape 
+public class Circle extends Shape
 {
-	
-//	/**
+
+	//	/**
 //	 * X coordinate of circle
 //	 */
 //	private int x;
@@ -38,4 +42,14 @@ public class Circle extends Shape
 		super(objectPosition, objectDimension);
 		// TODO Auto-generated constructor stub
 	}
+	
+	/*public void paintComponent(Graphics g){
+
+	    //Vous verrez cette phrase chaque fois que la méthode sera invoquée
+
+	    System.out.println("Je suis exécutée !"); 
+
+	    g.fillOval(20, 20, 75, 75);
+
+	  }  */
 }

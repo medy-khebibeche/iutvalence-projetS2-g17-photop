@@ -2,6 +2,7 @@ package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -20,6 +21,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 
 
 /**
@@ -174,6 +176,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		    this.circle.addActionListener(this);
 		    this.square.addActionListener(this);
 		    this.rectangle.addActionListener(this);
+		    this.triangle.addActionListener(this);
 		    this.text.addActionListener(this);
 		    this.frame.addActionListener(this);
 
@@ -208,6 +211,29 @@ public class TopMenuBar extends JMenuBar implements ActionListener
                 return;
             }
 		}
+		
+		if (selectedItem == this.circle)
+		{
+			System.out.println("circle");
+			
+		}
+		
+		if (selectedItem == this.square)
+		{
+			System.out.println("square");
+		}
+		
+		if (selectedItem == this.rectangle)
+		{
+			System.out.println("rectangle");
+		}
+		
+		if (selectedItem == this.triangle)
+		{
+			System.out.println("triangle");
+		}
+		
+		
 		if (selectedItem == this.closeFile)
 		{
 			if (JOptionPane.showConfirmDialog(this.window, "Fermer l'application ?", "Confirmation", JOptionPane.OK_CANCEL_OPTION,
@@ -218,5 +244,6 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		
 		
 }
+	
 }
 

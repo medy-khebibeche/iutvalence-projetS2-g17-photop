@@ -1,10 +1,13 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
+
+
 /**
  * 
  *
  */
-public class Rectangle extends Shape {
+public class Rectangle extends Shape 
+{
 	
 	// Methodes utile dans Graphics: drawRect et clearRect
 	
@@ -32,4 +35,11 @@ public class Rectangle extends Shape {
 		// TODO Auto-generated constructor stub
 	}
 
+	/*public void paintComponent(Graphics g){
+	    //x1, y1, width, height
+	    g.drawRect(10, 10, 50, 60);
+	   s
+	  }   */
+
 }
+

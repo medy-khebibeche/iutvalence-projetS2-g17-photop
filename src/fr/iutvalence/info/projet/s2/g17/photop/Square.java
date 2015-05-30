@@ -1,5 +1,7 @@
 package fr.iutvalence.info.projet.s2.g17.photop;
 
+import java.awt.Graphics;
+
 /**
  * 
  * @author Bastien
@@ -38,5 +40,11 @@ public class Square extends Shape
 		super(objectPosition, objectDimension);
 		// TODO Auto-generated constructor stub
 	}
+	
+	/*public void paintComponent(Graphics g){
+	    //x1, y1, width, height
+	    g.drawRect(10, 10, 60, 60);
+	   
+	  }   */
 
 }
