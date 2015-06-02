@@ -3,16 +3,24 @@ package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
+import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,6 +29,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import java.util.jar.JarEntry;
+import java.util.jar.JarInputStream;
 import java.util.regex.*;
 
 
@@ -65,6 +76,8 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	  private JFrame window;
 	
 	  private JMenuBar menuBar;
+	  
+	  private Image currentImage;
 	  
 		
 	  private JMenu file;
@@ -210,6 +223,15 @@ public class TopMenuBar extends JMenuBar implements ActionListener
                 }
                 return;
             }
+		}
+		if (selectedItem == this.create)
+		{	
+			int height = Integer.parseInt(new JOptionPane().showInputDialog(window,"Height ?"));
+			int width = Integer.parseInt(new JOptionPane().showInputDialog(window,"Width ?"));
+			Image emptyImage = new BufferedImage(width,height, BufferedImage.TYPE_INT_BGR);
+			this.currentImage = emptyImage;
+			this.window.setSize(width+200,height);
+			this.image.setIcon(new ImageIcon(emptyImage));
 		}
 		
 		if (selectedItem == this.circle)
