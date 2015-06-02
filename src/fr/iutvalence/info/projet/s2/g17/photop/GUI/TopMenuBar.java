@@ -21,7 +21,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import java.util.regex.*;
 
 
 /**
@@ -201,7 +201,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
                 try 
                 {
                     this.image.setIcon(new ImageIcon(ImageIO.read(file)));
-                    
+                    this.window.setSize(ImageIO.read(file).getWidth()+50,ImageIO.read(file).getHeight());
                     
                 } 
                 catch (IOException e) 
