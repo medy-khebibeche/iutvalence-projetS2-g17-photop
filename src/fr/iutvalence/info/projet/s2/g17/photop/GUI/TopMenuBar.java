@@ -268,6 +268,20 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				System.out.println("triangle");
 		}
 		
+		if (selectedItem == this.text)
+		{
+			if(this.image.getIcon() == null)
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			// TODO 
+		}
+		
+		if (selectedItem == this.frame)
+		{
+			if(this.image.getIcon() == null)
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			// TODO 
+		}
+		
 		
 		if (selectedItem == this.closeFile)
 		{
