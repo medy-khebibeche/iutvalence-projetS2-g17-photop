@@ -201,7 +201,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
                 try 
                 {
                     this.image.setIcon(new ImageIcon(ImageIO.read(file)));
-                    this.window.setSize(ImageIO.read(file).getWidth()+50,ImageIO.read(file).getHeight());
+                    this.window.setSize(ImageIO.read(file).getWidth(),ImageIO.read(file).getHeight());
                     
                 } 
                 catch (IOException e) 
@@ -214,23 +214,36 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		
 		if (selectedItem == this.circle)
 		{
-			System.out.println("circle");
+			if(this.image.getIcon() == null)
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			else
+				System.out.println("circle");
+			
 			
 		}
 		
 		if (selectedItem == this.square)
 		{
-			System.out.println("square");
+			if(this.image.getIcon() == null)
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			else
+				System.out.println("square");
 		}
 		
 		if (selectedItem == this.rectangle)
 		{
-			System.out.println("rectangle");
+			if(this.image.getIcon() == null)
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			else
+				System.out.println("rectangle");
 		}
 		
 		if (selectedItem == this.triangle)
 		{
-			System.out.println("triangle");
+			if(this.image.getIcon() == null)
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			else
+				System.out.println("triangle");
 		}
 		
 		
@@ -241,9 +254,6 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				this.window.dispose();
 			return;
 		}
-		
-		
-}
-	
+	}
 }
 
