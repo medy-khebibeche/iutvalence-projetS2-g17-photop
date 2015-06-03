@@ -89,7 +89,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	  private JMenuItem closeFile;
 	  private JMenuItem saveFile;
 	
-	  private JMenu edition;
+	  private JMenu edit;
 	  private JMenuItem rotate;
 	  private JMenuItem select;
 	  
@@ -125,26 +125,26 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	        
 		  	this.menuBar= new JMenuBar();
 		  	
-			this.file = new JMenu("Fichier");
-			this.openFile = new JMenuItem("Ouvrir fichier");
-			this.create = new JMenuItem("Creer image");
-			this.closeFile = new JMenuItem("Fermer");
-			this.saveFile = new JMenuItem("Sauvegarder");
+			this.file = new JMenu("File");
+			this.openFile = new JMenuItem("Open file");
+			this.create = new JMenuItem("Create picture");
+			this.closeFile = new JMenuItem("Close");
+			this.saveFile = new JMenuItem("Save");
 			 
 			
-			this.edition = new JMenu("Edition");
-			this.rotate = new JMenuItem("Tourner");
-			this.select = new JMenuItem("Selectionner");
+			this.edit = new JMenu("Edit");
+			this.rotate = new JMenuItem("Rotate");
+			this.select = new JMenuItem("Select");
 			  
 			  
-			this.add = new JMenu("Ajouter");
-			this.shape = new JMenu("Forme"); 
-			this.circle = new JMenuItem("Rond");
-			this.square = new JMenuItem("Carre");
+			this.add = new JMenu("Add");
+			this.shape = new JMenu("Shape"); 
+			this.circle = new JMenuItem("Circle");
+			this.square = new JMenuItem("Square");
 			this.triangle = new JMenuItem("Triangle");
 			this.rectangle = new JMenuItem("Rectangle");
-			this.text = new JMenuItem("Texte");
-			this.frame = new JMenuItem("Cadre");
+			this.text = new JMenuItem("Text");
+			this.frame = new JMenuItem("Frame");
 			
 			//menu file : 
 		    //	openFile
@@ -161,8 +161,8 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		    //menu edition :
 		    //	rotate
 		    //	select
-		    this.edition.add(rotate);
-		    this.edition.add(select);
+		    this.edit.add(rotate);
+		    this.edit.add(select);
 		    
 		    //menu add :
 		    //	shape : 
@@ -184,7 +184,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		    //menubar :
 		    //file | edition | add
 		    this.menuBar.add(file);
-		    this.menuBar.add(edition);
+		    this.menuBar.add(edit);
 		    this.menuBar.add(add);
 			
 
@@ -232,8 +232,8 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		}
 		if (selectedItem == this.create)
 		{	
-			int height = Integer.parseInt(new JOptionPane().showInputDialog(window,"Height ?"));
-			int width = Integer.parseInt(new JOptionPane().showInputDialog(window,"Width ?"));
+			int height = Integer.parseInt(new JOptionPane().showInputDialog(window,"Which height do you want ?"));
+			int width = Integer.parseInt(new JOptionPane().showInputDialog(window,"Which width do you want ?"));
 			
 			BufferedImage emptyImage = new BufferedImage(width,height, BufferedImage.TYPE_INT_RGB);
 			this.currentImage = emptyImage;
@@ -300,7 +300,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		
 		if (selectedItem == this.closeFile)
 		{
-			if (JOptionPane.showConfirmDialog(this.window, "Fermer l'application ?", "Confirmation", JOptionPane.OK_CANCEL_OPTION,
+			if (JOptionPane.showConfirmDialog(this.window, "Do you really want to quit Photop ?", "Confirmation", JOptionPane.OK_CANCEL_OPTION,
 					JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
 				this.window.dispose();
 			return;
