@@ -4,6 +4,7 @@ package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -33,6 +34,8 @@ import javax.swing.JPanel;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 import java.util.regex.*;
+
+import javax.imageio.ImageIO;
 
 
 /**
@@ -77,14 +80,14 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	
 	  private JMenuBar menuBar;
 	  
-	  private Image currentImage;
+	  private BufferedImage currentImage;
 	  
 		
 	  private JMenu file;
 	  private JMenuItem openFile;
 	  private JMenuItem create;
 	  private JMenuItem closeFile;
-	 
+	  private JMenuItem saveFile;
 	
 	  private JMenu edition;
 	  private JMenuItem rotate;
@@ -126,6 +129,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 			this.openFile = new JMenuItem("Ouvrir fichier");
 			this.create = new JMenuItem("Creer image");
 			this.closeFile = new JMenuItem("Fermer");
+			this.saveFile = new JMenuItem("Sauvegarder");
 			 
 			
 			this.edition = new JMenu("Edition");
@@ -148,11 +152,12 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 			//-------------
 		    //	closeFile
 		    this.file.add(openFile);
-		    this.file.add(this.create);
+		    this.file.add(create);
+		    this.file.add(saveFile);	
 		    //add separator
 		    this.file.addSeparator();
 		    this.file.add(closeFile);  
-		    
+		    	    
 		    //menu edition :
 		    //	rotate
 		    //	select
@@ -192,6 +197,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		    this.triangle.addActionListener(this);
 		    this.text.addActionListener(this);
 		    this.frame.addActionListener(this);
+		    this.saveFile.addActionListener(this);
 
 			this.add(menuBar);
 		 
@@ -228,10 +234,19 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		{	
 			int height = Integer.parseInt(new JOptionPane().showInputDialog(window,"Height ?"));
 			int width = Integer.parseInt(new JOptionPane().showInputDialog(window,"Width ?"));
-			Image emptyImage = new BufferedImage(width,height, BufferedImage.TYPE_INT_BGR);
+			
+			BufferedImage emptyImage = new BufferedImage(width,height, BufferedImage.TYPE_INT_RGB);
 			this.currentImage = emptyImage;
+			for(int x=0; x< emptyImage.getWidth() ; x++)
+			{
+				for(int y=0; y<emptyImage.getHeight(); y++)
+				{
+					emptyImage.setRGB(x, y, Color.WHITE.getRGB());
+				}
+			}
+			
 			this.window.setSize(width+200,height);
-			this.image.setIcon(new ImageIcon(emptyImage));
+			this.image.setIcon(new ImageIcon(this.currentImage));
 		}
 		
 		if (selectedItem == this.circle)
@@ -290,6 +305,24 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				this.window.dispose();
 			return;
 		}
+		if(selectedItem == this.saveFile)
+		{
+			if(this.image.getIcon() == null)
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			else 
+			{
+				 BufferedImage savedImage = this.currentImage;
+				 try
+				{
+					ImageIO.write( this.currentImage, "PNG", new File("G:/"+new JOptionPane().showInputDialog(window,"Name of the image ?")+".png"));
+				} 
+				 catch (IOException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		 }
 	}
 }
 
