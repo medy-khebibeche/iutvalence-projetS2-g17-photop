@@ -18,6 +18,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+
+
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -76,42 +78,104 @@ import javax.imageio.ImageIO;
 //                   |                  |   frame         
 public class TopMenuBar extends JMenuBar implements ActionListener
 {
+	/**
+	 * The main window
+	 */
 	  private JFrame window;
-	
+	  /**
+	   * The menu bar of the window
+	   */
 	  private JMenuBar menuBar;
-	  
+	  /**
+	   * The current image
+	   * This image is temporary created and doesn't exists as an "physical" image (like "test.png" )
+	   */
 	  private BufferedImage currentImage;
 	  
-		
+	  /**
+	   * The "File" menu item
+	   */
 	  private JMenu file;
+	  /**
+	   * The "Open file" menu item
+	   */
 	  private JMenuItem openFile;
+	  /**
+	   * The "Create" menu item
+	   */
 	  private JMenuItem create;
+	  /**
+	   * The "Close" menu item
+	   */
 	  private JMenuItem closeFile;
+	  /**
+	   * The "Save" menu item
+	   */
 	  private JMenuItem saveFile;
-	
+	  /**
+	   * The "Edit" menu item
+	   */
 	  private JMenu edition;
+	  /**
+	   * The "Rotate" menu item
+	   */
 	  private JMenuItem rotate;
+	  /**
+	   * The "Select" menu item
+	   */
 	  private JMenuItem select;
 	  
-	  
+	  /**
+	   * The "Add" menu item
+	   */
 	  private JMenu add;
+	  /**
+	   * The "Shape" menu item
+	   */
 	  private JMenu shape; 
+	  /**
+	   * The "Circle" menu item
+	   */
 	  private JMenuItem circle;
+	  /**
+	   * The "Square" menu item
+	   */
 	  private JMenuItem square;
+	  /**
+	   * The "Triangle" menu item
+	   */
 	  private JMenuItem triangle;
+	  /**
+	   * The "Rectangle" menu item
+	   */
 	  private JMenuItem rectangle;
+	  /**
+	   * The "Text" menu item
+	   */
 	  private JMenuItem text;
+	  /**
+	   * The "Frame" menu item 
+	   */
 	  private JMenuItem frame;
 
+	  /**
+	   * The "canvas"
+	   */
 	  private JLabel image;
+	  /**
+	   * The main panel
+	   */
 	  private JPanel panel;
 	 
 
-	  
+	  /**
+	   * The topMenuBar class which represents the top menu bar of the frame
+	   * @param window
+	   */
 	  public TopMenuBar(JFrame window)
 	  {
 		  	this.window = window;
-		  	
+		  	this.window.setTitle("Photop'");
 		  	
 		  	window.setLayout(new GridBagLayout());
 
@@ -203,7 +267,9 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		 
 	  }
 	  
-	  
+	  /**
+	   * All the actions listeners
+	   */
 	@Override
 	public void actionPerformed(ActionEvent event)
 	{
@@ -314,7 +380,14 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				 BufferedImage savedImage = this.currentImage;
 				 try
 				{
-					ImageIO.write( this.currentImage, "PNG", new File("G:/"+new JOptionPane().showInputDialog(window,"Name of the image ?")+".png"));
+					JFileChooser directoryChooser = new JFileChooser();
+					directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+					String showInputDialog = JOptionPane.showInputDialog(window,"Name of the image ?");
+					directoryChooser.showOpenDialog(window);
+					String path = directoryChooser.getSelectedFile().getPath();
+					System.out.println(path);
+					ImageIO.write( this.currentImage, "PNG", new File(path+"/"+showInputDialog+".png"));
+					JOptionPane.showMessageDialog(this.window, "Image "+showInputDialog+".png saved !");
 				} 
 				 catch (IOException e)
 				{
