@@ -303,6 +303,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
                     }
                     else
                     {
+                    	this.currentImage = ImageIO.read(file);
                     	this.image.setIcon(new ImageIcon(ImageIO.read(file)));
                     	this.window.setSize(ImageIO.read(file).getWidth(),ImageIO.read(file).getHeight());
                     }
