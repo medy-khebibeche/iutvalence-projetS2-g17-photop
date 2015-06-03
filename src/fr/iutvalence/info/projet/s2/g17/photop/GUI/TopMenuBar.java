@@ -299,6 +299,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
                     if(ImageIO.read(file).getWidth() > screenWidth || ImageIO.read(file).getHeight() > screenHeight )
                     {
                     	JOptionPane.showMessageDialog(this.window, "Image resolution is too big.");
+                    	
                     }
                     else
                     {
