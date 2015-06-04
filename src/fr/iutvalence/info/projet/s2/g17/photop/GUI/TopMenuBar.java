@@ -97,6 +97,11 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	  private BufferedImage currentImage;
 	  
 	  /**
+	   * The name of the image
+	   */
+	  private String imageName;
+	  
+	  /**
 	   * The "File" menu item
 	   */
 	  private JMenu file;
@@ -305,6 +310,8 @@ public class TopMenuBar extends JMenuBar implements ActionListener
                     {
                     	this.currentImage = ImageIO.read(file);
                     	this.image.setIcon(new ImageIcon(ImageIO.read(file)));
+                    	this.window.setTitle("Photop' : "+fileExplorer.getSelectedFile().getName());
+                    	System.out.println(fileExplorer.getSelectedFile().getName());
                     	this.window.setSize(ImageIO.read(file).getWidth(),ImageIO.read(file).getHeight());
                     }
                 } 
@@ -400,13 +407,24 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				 try
 				{
 					JFileChooser directoryChooser = new JFileChooser();
+					JOptionPane nameChooser = new JOptionPane();
+					
 					directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-					String showInputDialog = JOptionPane.showInputDialog(window,"Name of the image ?");
-					directoryChooser.showOpenDialog(window);
-					String path = directoryChooser.getSelectedFile().getPath();
-					System.out.println(path);
-					ImageIO.write( this.currentImage, "PNG", new File(path+"/"+showInputDialog+".png"));
-					JOptionPane.showMessageDialog(this.window, "Image "+showInputDialog+".png saved !");
+					String showInputDialog = nameChooser.showInputDialog(window,"Name of the image ?");
+					
+					this.imageName = showInputDialog;
+					if(this.imageName != null)
+					{
+						if(directoryChooser.showOpenDialog(window) == JFileChooser.APPROVE_OPTION)
+						{
+							String path = directoryChooser.getSelectedFile().getPath();
+							System.out.println(path);
+							this.window.setTitle("Photop' : "+this.imageName+".png");
+							ImageIO.write( this.currentImage, "PNG", new File(path+"/"+showInputDialog+".PNG"));
+							JOptionPane.showMessageDialog(this.window, "Image "+showInputDialog+".png saved !");
+						}
+					}
+
 				} 
 				 catch (IOException e)
 				{
