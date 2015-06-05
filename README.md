@@ -2,4 +2,6 @@
 
 This is the repository of the java project of group 17 : Photop'
 
-Mathie BERTHOLET - Médy KHEBIBECHE - Jean-Baptiste MERCIER - Bastien PLANEILLE - Corentin Vallier
+Photop' is a little Java software which can edit image.
+
+Mathie BERTHOLET - Médy KHEBIBECHE - Jean-Baptiste MERCIER - Bastien PLANEILLE - Corentin VALLIER
