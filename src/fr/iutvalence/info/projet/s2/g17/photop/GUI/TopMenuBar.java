@@ -217,6 +217,8 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	{
 		this.wasSaved = false;
 		this.window = window;
+		ImageIcon icon = new ImageIcon(getClass().getResource("/fr/iutvalence/info/projet/s2/g17/photop/GUI/123.png"));
+		this.window.setIconImage(icon.getImage());
 		this.window.setTitle("Photop'");
 
 		window.setLayout(new GridBagLayout());
