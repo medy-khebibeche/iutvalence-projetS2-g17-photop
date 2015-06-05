@@ -76,9 +76,9 @@ import javax.imageio.ImageIO;
 //-------------------|------------------|----------------|-----------
 //	openFile         |   rotate         |  	shape :      |	about Photop'
 //	create           |   select         |  		circle   |	about us 
-//	---------------- |                  |  		square   | 
-//	closeFile        |                  |  		triangle | 
-//	                 |                  |  		rectangle| 
+//	save			 |                  |  		square   | 
+//	save as          |                  |  		triangle | 
+//	close            |                  |  		rectangle| 
 //	                 |                  |  	text         | 
 //                   |                  |   frame        | 
 public class TopMenuBar extends JMenuBar implements ActionListener
@@ -327,8 +327,6 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 
 		this.add(menuBar);
 	}
-
-
 
 	/**
 	 * All the actions listeners
