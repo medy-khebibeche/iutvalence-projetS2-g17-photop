@@ -24,6 +24,7 @@ import java.io.IOException;
 
 
 
+
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -121,6 +122,11 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	   * The "Save" menu item
 	   */
 	  private JMenuItem saveFile;
+	  
+	  /**
+	   * The "Save to..." menu item
+	   */
+	  private JMenuItem saveFileAs;
 	  /**
 	   * The "Edit" menu item
 	   */
@@ -177,6 +183,15 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	   * The main panel
 	   */
 	  private JPanel panel;
+	  /**
+	   * Boolean which represent if the image has been already saved before
+	   */
+	  private boolean wasSaved;
+	
+	  /**
+	   * The path of the current image
+	   */
+	  private String path;
 	 
 
 	  /**
@@ -185,6 +200,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	   */
 	  public TopMenuBar(JFrame window)
 	  {
+		  	this.wasSaved = false;
 		  	this.window = window;
 		  	this.window.setTitle("Photop'");
 		  	
@@ -205,6 +221,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 			this.create = new JMenuItem("Create picture");
 			this.closeFile = new JMenuItem("Close");
 			this.saveFile = new JMenuItem("Save");
+			this.saveFileAs = new JMenuItem("Save as...");
 			 
 			
 			this.edit = new JMenu("Edit");
@@ -228,7 +245,8 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		    //	closeFile
 		    this.file.add(openFile);
 		    this.file.add(create);
-		    this.file.add(saveFile);	
+		    this.file.add(saveFile);
+		    this.file.add(saveFileAs);
 		    //add separator
 		    this.file.addSeparator();
 		    this.file.add(closeFile);  
@@ -273,6 +291,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		    this.text.addActionListener(this);
 		    this.frame.addActionListener(this);
 		    this.saveFile.addActionListener(this);
+		    this.saveFileAs.addActionListener(this);
 
 			this.add(menuBar);
 		 
@@ -397,6 +416,44 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				this.window.dispose();
 			return;
 		}
+		if(selectedItem == this.saveFileAs)
+		{
+			if(this.image.getIcon() == null)
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			else 
+			{
+				JFileChooser directoryChooser = new JFileChooser();
+				directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				JOptionPane nameChooser = new JOptionPane();
+
+				String showInputDialog = nameChooser.showInputDialog(window,"Name of the image ?");
+				this.imageName = showInputDialog;
+
+				if(this.imageName != null)
+				{
+					if(directoryChooser.showOpenDialog(window) == JFileChooser.APPROVE_OPTION)
+					{
+						this.path = directoryChooser.getSelectedFile().getPath();
+						System.out.println(this.path);
+						this.window.setTitle("Photop' : "+this.imageName+".png");
+						try
+						{
+							ImageIO.write( this.currentImage, "PNG", new File(this.path+"/"+this.imageName+".PNG"));
+						} 
+						catch (IOException e)
+						{
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						this.wasSaved = true;
+						JOptionPane.showMessageDialog(this.window, "Image "+showInputDialog+".png saved !");
+					}
+				}
+			}
+		}
+		
+		
+		
 		if(selectedItem == this.saveFile)
 		{
 			if(this.image.getIcon() == null)
@@ -410,21 +467,31 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 					JOptionPane nameChooser = new JOptionPane();
 					
 					directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-					String showInputDialog = nameChooser.showInputDialog(window,"Name of the image ?");
 					
-					this.imageName = showInputDialog;
-					if(this.imageName != null)
+					if(this.wasSaved)
 					{
-						if(directoryChooser.showOpenDialog(window) == JFileChooser.APPROVE_OPTION)
+						this.window.setTitle("Photop' : "+this.imageName+".png");
+						ImageIO.write( this.currentImage, "PNG", new File(this.path+"/"+this.imageName+".PNG"));
+						JOptionPane.showMessageDialog(this.window, "Image "+this.imageName+".png saved !");
+					}
+					else
+					{
+						String showInputDialog = nameChooser.showInputDialog(window,"Name of the image ?");
+						this.imageName = showInputDialog;
+
+						if(this.imageName != null)
 						{
-							String path = directoryChooser.getSelectedFile().getPath();
-							System.out.println(path);
-							this.window.setTitle("Photop' : "+this.imageName+".png");
-							ImageIO.write( this.currentImage, "PNG", new File(path+"/"+showInputDialog+".PNG"));
-							JOptionPane.showMessageDialog(this.window, "Image "+showInputDialog+".png saved !");
+							if(directoryChooser.showOpenDialog(window) == JFileChooser.APPROVE_OPTION)
+							{
+								this.path = directoryChooser.getSelectedFile().getPath();
+								System.out.println(this.path);
+								this.window.setTitle("Photop' : "+this.imageName+".png");
+								ImageIO.write( this.currentImage, "PNG", new File(this.path+"/"+showInputDialog+".PNG"));
+								this.wasSaved = true;
+								JOptionPane.showMessageDialog(this.window, "Image "+showInputDialog+".png saved !");
+							}
 						}
 					}
-
 				} 
 				 catch (IOException e)
 				{
