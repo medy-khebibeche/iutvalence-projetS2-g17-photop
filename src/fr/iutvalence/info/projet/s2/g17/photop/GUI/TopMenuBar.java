@@ -184,7 +184,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	 * The "About Photop'" menu item
 	 */
 	private JMenuItem aboutPhotop;
-	
+
 	/**
 	 * The "About us'" menu item
 	 */
@@ -294,7 +294,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		this.add.add(shape);
 		this.add.add(text);
 		this.add.add(frame);
-		
+
 		//menu help :
 		//	about photop'
 		//	about us
@@ -322,6 +322,8 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		this.saveFileAs.addActionListener(this);
 		this.aboutPhotop.addActionListener(this);
 		this.aboutUs.addActionListener(this);
+		this.select.addActionListener(this);
+		this.rotate.addActionListener(this);
 
 		this.add(menuBar);
 	}
@@ -487,10 +489,34 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		{
 			JOptionPane.showMessageDialog(this.window, "Welcome on Photop !");
 		}
-		
+
 		if(selectedItem == this.aboutUs)
 		{
 			JOptionPane.showMessageDialog(this.window, "Creators : \n Mathie BERTHOLET - Médy KHEBIBECHE - Jean-Baptiste MERCIER \n Bastien PLANEILLE - Corentin VALLIER");
+		}
+
+		if(selectedItem == this.rotate)
+		{
+			if(this.image.getIcon() == null)
+			{
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			}
+			else
+			{
+				//TODO
+			}
+		}
+
+		if(selectedItem == this.select)
+		{
+			if(this.image.getIcon() == null)
+			{
+				JOptionPane.showMessageDialog(this.window, "No file selected");
+			}
+			else
+			{
+				//TODO
+			}
 		}
 
 		if(selectedItem == this.saveFile)
