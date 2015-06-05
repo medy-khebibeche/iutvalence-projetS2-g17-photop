@@ -362,7 +362,6 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 						this.image.setIcon(new ImageIcon(ImageIO.read(file)));
 						this.window.setTitle("Photop' : "+fileExplorer.getSelectedFile().getName());
 						System.out.println(fileExplorer.getSelectedFile().getName());
-						this.window.setSize(ImageIO.read(file).getWidth(),ImageIO.read(file).getHeight());
 					}
 				} 
 				catch (IOException e) 
@@ -387,7 +386,6 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				}
 			}
 
-			this.window.setSize(width+200,height);
 			this.image.setIcon(new ImageIcon(this.currentImage));
 		}
 
