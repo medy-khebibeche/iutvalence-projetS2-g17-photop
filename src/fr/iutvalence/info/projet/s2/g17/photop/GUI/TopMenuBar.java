@@ -174,7 +174,17 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	   * The "Frame" menu item 
 	   */
 	  private JMenuItem frame;
-
+	  
+	  /**
+	   * The "Help" menu item
+	   */
+	  private JMenu help;
+	  
+	  /**
+	   * The "About Photop'" menu item
+	   */
+	  private JMenuItem aboutPhotop;
+	  
 	  /**
 	   * The "canvas"
 	   */
@@ -238,6 +248,9 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 			this.text = new JMenuItem("Text");
 			this.frame = new JMenuItem("Frame");
 			
+			this.help = new JMenu("Help");
+			this.aboutPhotop = new JMenuItem("About Photop");
+			
 			//menu file : 
 		    //	openFile
 		    //	create
@@ -274,11 +287,14 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		    this.add.add(text);
 		    this.add.add(frame);
 		    
+		    this.help.add(aboutPhotop);
+		    
 		    //menubar :
 		    //file | edition | add
 		    this.menuBar.add(file);
 		    this.menuBar.add(edit);
 		    this.menuBar.add(add);
+		    this.menuBar.add(help);
 			
 
 		    this.openFile.addActionListener(this);
@@ -292,6 +308,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		    this.frame.addActionListener(this);
 		    this.saveFile.addActionListener(this);
 		    this.saveFileAs.addActionListener(this);
+		    this.aboutPhotop.addActionListener(this);
 
 			this.add(menuBar);
 		 
@@ -452,6 +469,10 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 			}
 		}
 		
+		if(selectedItem == this.aboutPhotop)
+		{
+			JOptionPane.showMessageDialog(this.window, "Welcome on Photop !");
+		}
 		
 		
 		if(selectedItem == this.saveFile)
