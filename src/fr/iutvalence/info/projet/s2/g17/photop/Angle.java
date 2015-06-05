@@ -50,6 +50,6 @@ public class Angle
 		this.angleValue = this.angleValue + newAngle.getAngleValue();
 		return this;			
 	}
-	
+
 
 }

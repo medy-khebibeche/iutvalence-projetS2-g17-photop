@@ -20,5 +20,5 @@ public class Triangle extends Shape
 		// TODO Auto-generated constructor stub
 	}
 
-	
+
 }

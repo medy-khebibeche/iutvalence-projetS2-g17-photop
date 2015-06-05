@@ -11,12 +11,12 @@ public abstract class PhotopObject
 	 * the coordinate of the object
 	 */
 	private Position objectPosition;
-	
+
 	/**
 	 * the dimension of the object
 	 */
 	private Dimension objectDimension;
-	
+
 	/**
 	 * the constructor of an object
 	 * @param objectPosition the coordinate of the object

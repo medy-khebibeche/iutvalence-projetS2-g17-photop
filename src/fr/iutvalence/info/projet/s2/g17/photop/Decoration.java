@@ -13,7 +13,7 @@ public abstract class Decoration extends PhotopObject
 	 * the color of the decoration
 	 */
 	private Color decorationColor;
-	
+
 	/**
 	 * the angle of the decoration
 	 */
@@ -30,7 +30,7 @@ public abstract class Decoration extends PhotopObject
 		this.decorationAngle = new Angle(decorationAngle);
 		this.decorationColor = decorationColor;
 	}
-	
+
 	/**
 	 * This method changes the color of a decoration with a given color
 	 * @param newColor the color to change
@@ -39,7 +39,7 @@ public abstract class Decoration extends PhotopObject
 	{
 		this.decorationColor = newColor;
 	}
-	
+
 	/**
 	 * This method rotates the decoration with a given angle
 	 * @param newAngle the angle to rotate
@@ -49,6 +49,6 @@ public abstract class Decoration extends PhotopObject
 		this.decorationAngle.rotate(newAngle);
 	}
 
-	
-	
+
+
 }

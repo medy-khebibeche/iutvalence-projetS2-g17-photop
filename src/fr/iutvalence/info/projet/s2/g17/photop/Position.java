@@ -10,7 +10,7 @@ public class Position
 	 * the object's position on the X axe  
 	 */
 	private int posX;
-	
+
 	/**
 	 * the object's position on the Y axe  
 	 */
@@ -44,7 +44,7 @@ public class Position
 	{
 		this.posX = posX;
 	}
-	
+
 	/**
 	 * Returns the object's position on the Y axe  
 	 * @return posY the object's position on the Y axe  
@@ -62,8 +62,8 @@ public class Position
 	{
 		this.posY = posY;
 	}	
-	
+
 }
-	
-	
+
+
 

@@ -14,18 +14,18 @@ public abstract class Shape extends fr.iutvalence.info.projet.s2.g17.photop.Phot
 	 * 
 	 */
 	private Color backgroundColor;
-	
-	
+
+
 	/**
 	 * 
 	 */
 	private Color borderColor;
-	
+
 	/**
 	 * 
 	 */
 	private int borderThickness;
-	
+
 	/**
 	 * 
 	 * @return
@@ -79,7 +79,7 @@ public abstract class Shape extends fr.iutvalence.info.projet.s2.g17.photop.Phot
 	{
 		this.borderThickness = borderThickness;
 	}
-	
+
 	/**
 	 * 
 	 * @param objectPosition
@@ -88,7 +88,7 @@ public abstract class Shape extends fr.iutvalence.info.projet.s2.g17.photop.Phot
 	protected Shape(Position objectPosition, Dimension objectDimension)
 	{
 		super(objectPosition, objectDimension);
-		
+
 	}
-		
+
 }

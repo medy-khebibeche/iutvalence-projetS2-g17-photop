@@ -11,12 +11,12 @@ public enum Font
 	underlined("Souligne"),
 	higlighted("Surligne"),
 	blocked("Barre");
-	
+
 	/**
 	 * The name of the font style
 	 */
 	private String name="";
-	
+
 	/**
 	 * The constructor of Font
 	 * @param name the name of the font

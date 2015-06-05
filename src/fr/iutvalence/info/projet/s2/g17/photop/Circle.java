@@ -13,25 +13,25 @@ public class Circle extends Shape
 {
 
 	//	/**
-//	 * X coordinate of circle
-//	 */
-//	private int x;
-//	
-//	/**
-//	 * Y coordinate of circle
-//	 */
-//	private int y;
-//	
-//	/**
-//	 * width of circle
-//	 */
-//	private int width;
-//
-//	/**
-//	 * height of circle
-//	 */
-//	private int height;
-//	
+	//	 * X coordinate of circle
+	//	 */
+	//	private int x;
+	//	
+	//	/**
+	//	 * Y coordinate of circle
+	//	 */
+	//	private int y;
+	//	
+	//	/**
+	//	 * width of circle
+	//	 */
+	//	private int width;
+	//
+	//	/**
+	//	 * height of circle
+	//	 */
+	//	private int height;
+	//	
 	/**
 	 * 
 	 * @param objectPosition
@@ -42,12 +42,12 @@ public class Circle extends Shape
 		super(objectPosition, objectDimension);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	/*public void paintComponent(Graphics g){
 
-	    //Vous verrez cette phrase chaque fois que la méthode sera invoquée
+	    //Vous verrez cette phrase chaque fois que la mï¿½thode sera invoquï¿½e
 
-	    System.out.println("Je suis exécutée !"); 
+	    System.out.println("Je suis exï¿½cutï¿½e !"); 
 
 	    g.fillOval(20, 20, 75, 75);
 

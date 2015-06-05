@@ -11,12 +11,12 @@ public class Dimension
 	 * the height of the object
 	 */
 	private int height; 
-	
+
 	/**
 	 * the width of the object
 	 */
 	private int width; 
-	
+
 	/**
 	 * Creates a new dimension
 	 * @param height
@@ -27,7 +27,7 @@ public class Dimension
 		this.height = height;
 		this.width = width;
 	}
-	
+
 	/**
 	 * Sets the height with a given height
 	 * @param newHeight the height to set
@@ -36,7 +36,7 @@ public class Dimension
 	{
 		this.height = newHeight;
 	}
-	
+
 	/**
 	 * Sets the width with a given width
 	 * @param newwidth the width to set
@@ -45,7 +45,7 @@ public class Dimension
 	{
 		this.width = newWidth;
 	}
-	
+
 	/**
 	 * Increments the dimension with a given ratio
 	 * @param ratio the given ratio 

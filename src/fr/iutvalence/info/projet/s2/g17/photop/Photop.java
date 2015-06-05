@@ -28,11 +28,11 @@ public class Photop
 	public void GUIAssociation(GUIPhotop guiPhotop)
 	{
 		this.guiPhotop = guiPhotop;
-		
+
 	}
 
-	
-	
 
-	
+
+
+
 }

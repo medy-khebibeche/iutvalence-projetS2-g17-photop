@@ -8,6 +8,6 @@ import java.awt.Canvas;
  *
  */
 public class DrawPanel extends Canvas
-{
-	
-}
+	{
+
+	}
