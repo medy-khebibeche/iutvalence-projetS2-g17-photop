@@ -130,12 +130,10 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	/**
 	 * The "Edit" menu item
 	 */
-	private JMenu edition;
+	private JMenu edit;
 	/**
 	 * The "Rotate" menu item
 	 */	
-	private JMenu edit;
-
 	private JMenuItem rotate;
 	/**
 	 * The "Select" menu item
@@ -217,6 +215,9 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	{
 		this.wasSaved = false;
 		this.window = window;
+		/**
+		 * reaching the icon through the path of the package
+		 */
 		ImageIcon icon = new ImageIcon(getClass().getResource("/fr/iutvalence/info/projet/s2/g17/photop/GUI/123.png"));
 		this.window.setIconImage(icon.getImage());
 		this.window.setTitle("Photop'");
