@@ -128,6 +128,11 @@ public class DrawPanel extends JPanel
 	{
 		this.image = image;
 	}
+	
+	public void setPointerSize(int size)
+	{
+		this.point.setSize(size+this.point.getSize());
+	}
 
 
 }
