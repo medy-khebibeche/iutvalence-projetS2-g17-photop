@@ -21,14 +21,17 @@ public class DrawPanel extends JPanel
 {
 	private Pointer point;
 	
+	private Image image;
+	
 	private ArrayList<PhotopShape> points = new ArrayList<PhotopShape>();  
 	
 	private int pointsListSize = this.points.size();
 	
 	
-	public DrawPanel()
+	public DrawPanel(Image img)
 	{
 		this.point = new Pointer();
+		this.image = img;
 		this.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
 				pointsListSize = points.size();
@@ -55,7 +58,8 @@ public class DrawPanel extends JPanel
 		
 		g.setColor(Color.white);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-		
+		//TODO center the image
+		g.drawImage(this.image, this.getWidth()/2, this.getHeight()/2, null);
 		
 		for(PhotopShape photopShape : this.points)
 		{
@@ -117,5 +121,11 @@ public class DrawPanel extends JPanel
 	public void setPointerType(TypeShape type)
 	{
 		this.point.setShape(type);
-	}      
+	}
+	
+	public void setImage(Image image)
+	{
+		this.image = image;
+	}
+
 }

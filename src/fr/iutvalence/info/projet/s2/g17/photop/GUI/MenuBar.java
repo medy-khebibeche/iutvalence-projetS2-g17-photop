@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -40,10 +39,8 @@ public class MenuBar extends JMenuBar
 	private JMenuItem orange;
 	private JMenuItem red;
 	private JMenuItem magenta;
-	private JMenuItem purple;
 	private JMenuItem blue;
 	private JMenuItem green;
-	private JMenuItem brown;
 	private JMenuItem black;
 	
 	private JMenu shape;
@@ -132,7 +129,7 @@ public class MenuBar extends JMenuBar
 						}
 						else
 						{
-							//drawPanel.drawImage(ImageIO.read(file), null);
+							drawPanel.setImage(ImageIO.read(file));
 							System.out.println(fileExplorer.getSelectedFile().getName());
 						}
 					} 

@@ -66,11 +66,7 @@ public class GUIPhotop implements Runnable
 		this.window.setIconImage(icon.getImage());
 		this.window.setTitle("Photop'");
 	
-		this.drawPanel = new DrawPanel();
-//		this.topMenuBar = new TopMenuBar(this.window, this.drawPanel);
-//		this.topMenuBar.initTopMenuBar(this.window, this.drawPanel);
-//		this.window.getContentPane().add(drawPanel);
-
+		this.drawPanel = new DrawPanel(null);
 		this.menuBar = new MenuBar(this.drawPanel);
 		this.menuBar.initMenu(this.window);
 		this.window.getContentPane().add(drawPanel);
