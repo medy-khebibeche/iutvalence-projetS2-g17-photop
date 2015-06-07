@@ -125,7 +125,7 @@ public class MenuBar extends JMenuBar
 	 * Initializes the MenuBar and adds ActionListener and ActionPerformed
 	 * @param window
 	 */
-	public void initMenu(JFrame window)
+	public void initMenu(final JFrame window)
 	{	
 		openImage.addActionListener(new ActionListener()
 		{
@@ -176,7 +176,7 @@ public class MenuBar extends JMenuBar
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				drawPanel.eraseAll();				
+				drawPanel.eraseAll();
 			}
 		});
 		
@@ -282,6 +282,20 @@ public class MenuBar extends JMenuBar
 						}
 					}
 				}
+				
+			}
+		});
+		createImage.addActionListener(new ActionListener()
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				int height = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which height do you want ?"));
+				int width = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which width do you want ?"));
+				
+				window.setSize(width, height);
+				window.setResizable(false);
 				
 			}
 		});
