@@ -1,21 +1,29 @@
 package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 
+import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import fr.iutvalence.info.projet.s2.g17.photop.TypeShape;
@@ -169,6 +177,43 @@ public class MenuBar extends JMenuBar
 			}
 		});
 		
+		saveImage.addActionListener(new ActionListener()
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				JFileChooser directoryChooser = new JFileChooser();
+				
+				directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				String imageName = JOptionPane.showInputDialog(drawPanel,"Name of the image ?");
+				
+				
+				if(directoryChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+				{
+					String path = directoryChooser.getSelectedFile().getPath();
+					try
+					{
+						try
+						{
+							BufferedImage image = new Robot().createScreenCapture(new Rectangle(drawPanel.getLocationOnScreen().x, drawPanel.getLocationOnScreen().y, drawPanel.getWidth(), drawPanel.getHeight()));
+							ImageIO.write(image, "PNG", new File(path+"/"+imageName+".PNG"));
+						} 
+						catch (AWTException e1)
+						{
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					} catch (IOException e1)
+					{
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}
+				
+		});
+		
 		circle.addActionListener(new ActionListener()
 		{
 			@Override
@@ -297,5 +342,16 @@ public class MenuBar extends JMenuBar
 		menuBar.add(edition);
 		menuBar.add(about);
 		window.setJMenuBar(menuBar);
+	}
+	
+	public BufferedImage createImage(JPanel panel)
+	{
+			 int w = panel.getWidth();
+		     int h = panel.getHeight();
+		     BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+		     Graphics2D g = bi.createGraphics();
+		     panel.paint(g);
+		     return bi;
+
 	}
 }

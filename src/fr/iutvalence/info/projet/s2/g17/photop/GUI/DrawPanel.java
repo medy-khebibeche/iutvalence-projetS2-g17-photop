@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.ImageObserver;
+import java.awt.image.RenderedImage;
 import java.util.ArrayList;
 
 import fr.iutvalence.info.projet.s2.g17.photop.PhotopShape;
@@ -127,5 +128,6 @@ public class DrawPanel extends JPanel
 	{
 		this.image = image;
 	}
+
 
 }
