@@ -36,7 +36,7 @@ public class PhotopImage extends PhotopObject
 	 * @param isSaved saving state
 	 * @param path the path of the image
 	 */
-	public PhotopImage(String path,String name, String imageExtension, boolean isSaved, Position positionOfTheImage, Dimension dimensionOfTheImage)
+	public PhotopImage(String path,String name, String imageExtension, boolean isSaved, Position positionOfTheImage, int dimensionOfTheImage)
 	{
 		super(positionOfTheImage,dimensionOfTheImage);
 		this.path = path;

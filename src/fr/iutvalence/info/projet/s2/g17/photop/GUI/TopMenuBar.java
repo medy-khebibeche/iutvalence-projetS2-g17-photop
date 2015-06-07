@@ -1,34 +1,14 @@
 package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 
-
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
-import java.awt.Insets;
-import java.awt.Toolkit;
-import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-
-
-
-
-
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,13 +17,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-import java.util.jar.JarEntry;
-import java.util.jar.JarInputStream;
-import java.util.regex.*;
-
-import javax.imageio.ImageIO;
-
 
 /**
  * Creates a window with a menu at the top of the window : </br>
@@ -72,21 +45,17 @@ import javax.imageio.ImageIO;
  *  @author bertholm
  */
 
-//file               | edition          | add            | help 
-//-------------------|------------------|----------------|-----------
-//	openFile         |   rotate         |  	shape :      |	about Photop'
-//	create           |   select         |  		circle   |	about us 
-//	save			 |                  |  		square   | 
-//	save as          |                  |  		triangle | 
-//	close            |                  |  		rectangle| 
-//	                 |                  |  	text         | 
-//                   |                  |   frame        | 
 public class TopMenuBar extends JMenuBar implements ActionListener
 {
 	/**
 	 * The main window
 	 */
 	private JFrame window;
+	/**
+	 * the drawing panel
+	 */
+	private DrawPanel drawPanel;
+
 	/**
 	 * The menu bar of the window
 	 */
@@ -96,12 +65,12 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	 * This image is temporary created and doesn't exists as an "physical" image (like "test.png" )
 	 */
 	private BufferedImage currentImage;
-
+	
 	/**
 	 * The name of the image
 	 */
 	private String imageName;
-
+	
 	/**
 	 * The "File" menu item
 	 */
@@ -122,7 +91,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	 * The "Save" menu item
 	 */
 	private JMenuItem saveFile;
-
+	
 	/**
 	 * The "Save to..." menu item
 	 */
@@ -139,7 +108,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	 * The "Select" menu item
 	 */
 	private JMenuItem select;
-
+	
 	/**
 	 * The "Add" menu item
 	 */
@@ -172,22 +141,22 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	 * The "Frame" menu item 
 	 */
 	private JMenuItem frame;
-
+	
 	/**
 	 * The "Help" menu item
 	 */
 	private JMenu help;
-
+	
 	/**
 	 * The "About Photop'" menu item
 	 */
 	private JMenuItem aboutPhotop;
-
+	
 	/**
 	 * The "About us'" menu item
 	 */
 	private JMenuItem aboutUs;
-
+	
 	/**
 	 * The "canvas"
 	 */
@@ -200,53 +169,43 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	 * Boolean which represent if the image has been already saved before
 	 */
 	private boolean wasSaved;
-
+	
 	/**
 	 * The path of the current image
 	 */
 	private String path;
-
-
+	
+	
 	/**
 	 * The topMenuBar class which represents the top menu bar of the frame
 	 * @param window
 	 */
-	public TopMenuBar(JFrame window)
+	public TopMenuBar(JFrame window, DrawPanel drawPanel)
 	{
 		this.wasSaved = false;
 		this.window = window;
-		/**
-		 * reaching the icon through the path of the package
-		 */
-		ImageIcon icon = new ImageIcon(getClass().getResource("/fr/iutvalence/info/projet/s2/g17/photop/GUI/123.png"));
-		this.window.setIconImage(icon.getImage());
-		this.window.setTitle("Photop'");
-
-		window.setLayout(new GridBagLayout());
-
+		this.drawPanel = drawPanel;
+		
+		this.window.setLayout(new GridBagLayout());
+		
 		this.panel = new JPanel();
 		this.panel.setLayout(new BorderLayout());
 		this.image = new JLabel("");
 		this.panel.add(this.image, BorderLayout.CENTER);
-
+		
 		this.window.add(this.panel, new GridBagConstraints());
-
-
+		
+		
 		this.menuBar= new JMenuBar();
-
+		
 		this.file = new JMenu("File");
 		this.openFile = new JMenuItem("Open file");
 		this.create = new JMenuItem("Create picture");
 		this.closeFile = new JMenuItem("Close");
 		this.saveFile = new JMenuItem("Save");
 		this.saveFileAs = new JMenuItem("Save as...");
-
-
-		this.edit = new JMenu("Edit");
-		this.rotate = new JMenuItem("Rotate");
-		this.select = new JMenuItem("Select");
-
-
+		
+		
 		this.add = new JMenu("Add");
 		this.shape = new JMenu("Shape"); 
 		this.circle = new JMenuItem("Circle");
@@ -255,11 +214,15 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		this.rectangle = new JMenuItem("Rectangle");
 		this.text = new JMenuItem("Text");
 		this.frame = new JMenuItem("Frame");
-
+		
 		this.help = new JMenu("Help");
 		this.aboutPhotop = new JMenuItem("About Photop");
 		this.aboutUs = new JMenuItem("About us");
-
+		
+	}
+	
+	public void initTopMenuBar(JFrame window, DrawPanel drawPanel)
+	{
 		//menu file : 
 		//	openFile
 		//	create
@@ -274,13 +237,13 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		//add separator
 		this.file.addSeparator();
 		this.file.add(closeFile);  
-
+		
 		//menu edition :
 		//	rotate
 		//	select
 		this.edit.add(rotate);
 		this.edit.add(select);
-
+		
 		//menu add :
 		//	shape : 
 		//		circle
@@ -293,25 +256,24 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		this.shape.add(square);
 		this.shape.add(triangle);
 		this.shape.add(rectangle);
-
+		
 		this.add.add(shape);
 		this.add.add(text);
 		this.add.add(frame);
-
+		
 		//menu help :
 		//	about photop'
 		//	about us
 		this.help.add(aboutPhotop);
 		this.help.add(aboutUs);
-
+		
 		//menubar :
 		//file | edition | add | help  
 		this.menuBar.add(file);
 		this.menuBar.add(edit);
 		this.menuBar.add(add);
 		this.menuBar.add(help);
-
-
+		
 		this.openFile.addActionListener(this);
 		this.create.addActionListener(this);
 		this.closeFile.addActionListener(this);
@@ -327,10 +289,11 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		this.aboutUs.addActionListener(this);
 		this.select.addActionListener(this);
 		this.rotate.addActionListener(this);
-
+		
 		this.add(menuBar);
+		this.window.setJMenuBar(this);
 	}
-
+	
 	/**
 	 * All the actions listeners
 	 */
@@ -338,109 +301,37 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 	public void actionPerformed(ActionEvent event)
 	{
 		JMenuItem selectedItem = (JMenuItem) event.getSource();
-
+		
 		if (selectedItem == this.openFile)
 		{
-			JFileChooser fileExplorer = new JFileChooser();
-			int result = fileExplorer.showOpenDialog(null);
-
-			if (result == JFileChooser.APPROVE_OPTION) 
-			{
-				File file = fileExplorer.getSelectedFile();
-				try 
-				{
-					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-					double screenWidth = screenSize.getWidth();
-					double screenHeight = screenSize.getHeight();
-
-					//TODO Check verification for the size of the image
-					if(ImageIO.read(file).getWidth() > screenWidth || ImageIO.read(file).getHeight() > screenHeight )
-					{
-						JOptionPane.showMessageDialog(this.window, "Image resolution is too big.");
-
-					}
-					else
-					{
-						this.currentImage = ImageIO.read(file);
-						this.image.setIcon(new ImageIcon(ImageIO.read(file)));
-						this.window.setTitle("Photop' : "+fileExplorer.getSelectedFile().getName());
-						System.out.println(fileExplorer.getSelectedFile().getName());
-					}
-				} 
-				catch (IOException e) 
-				{
-					e.printStackTrace();
-				}
-				return;
-			}
+			MenuAction.openFile(this);
 		}
+		
 		if (selectedItem == this.create)
 		{	
-			int height = Integer.parseInt(new JOptionPane().showInputDialog(window,"Which height do you want ?"));
-			int width = Integer.parseInt(new JOptionPane().showInputDialog(window,"Which width do you want ?"));
-
-			BufferedImage emptyImage = new BufferedImage(width,height, BufferedImage.TYPE_INT_RGB);
-			this.currentImage = emptyImage;
-			for(int x=0; x< emptyImage.getWidth() ; x++)
-			{
-				for(int y=0; y<emptyImage.getHeight(); y++)
-				{
-					emptyImage.setRGB(x, y, Color.WHITE.getRGB());
-				}
-			}
-
-			this.image.setIcon(new ImageIcon(this.currentImage));
+			MenuAction.createFile(this);
 		}
-
+		
 		if (selectedItem == this.circle)
 		{
-			if(this.image.getIcon() == null)
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			else
-				System.out.println("circle");
-
-
+			MenuAction.circle(this,this.drawPanel);
 		}
-
+		
 		if (selectedItem == this.square)
 		{
-			if(this.image.getIcon() == null)
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			else
-				System.out.println("square");
+			MenuAction.square(this,this.drawPanel);
 		}
-
+		
 		if (selectedItem == this.rectangle)
 		{
-			if(this.image.getIcon() == null)
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			else
-				System.out.println("rectangle");
+			MenuAction.rectangle(this,this.drawPanel);
 		}
-
+		
 		if (selectedItem == this.triangle)
 		{
-			if(this.image.getIcon() == null)
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			else
-				System.out.println("triangle");
+			MenuAction.triangle(this,this.drawPanel);
 		}
-
-		if (selectedItem == this.text)
-		{
-			if(this.image.getIcon() == null)
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			// TODO 
-		}
-
-		if (selectedItem == this.frame)
-		{
-			if(this.image.getIcon() == null)
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			// TODO 
-		}
-
-
+		
 		if (selectedItem == this.closeFile)
 		{
 			if (JOptionPane.showConfirmDialog(this.window, "Do you really want to quit Photop ?", "Confirmation", JOptionPane.OK_CANCEL_OPTION,
@@ -450,74 +341,19 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 		}
 		if(selectedItem == this.saveFileAs)
 		{
-			if(this.image.getIcon() == null)
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			else 
-			{
-				JFileChooser directoryChooser = new JFileChooser();
-				directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				JOptionPane nameChooser = new JOptionPane();
-
-				String showInputDialog = nameChooser.showInputDialog(window,"Name of the image ?");
-				this.imageName = showInputDialog;
-
-				if(this.imageName != null)
-				{
-					if(directoryChooser.showOpenDialog(window) == JFileChooser.APPROVE_OPTION)
-					{
-						this.path = directoryChooser.getSelectedFile().getPath();
-						System.out.println(this.path);
-						this.window.setTitle("Photop' : "+this.imageName+".png");
-						try
-						{
-							ImageIO.write( this.currentImage, "PNG", new File(this.path+"/"+this.imageName+".PNG"));
-						} 
-						catch (IOException e)
-						{
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						this.wasSaved = true;
-						JOptionPane.showMessageDialog(this.window, "Image "+showInputDialog+".png saved !");
-					}
-				}
-			}
+			MenuAction.saveFileAs(this);
 		}
-
+		
 		if(selectedItem == this.aboutPhotop)
 		{
 			JOptionPane.showMessageDialog(this.window, "Welcome on Photop !");
 		}
-
+		
 		if(selectedItem == this.aboutUs)
 		{
 			JOptionPane.showMessageDialog(this.window, "Creators : \n Mathie BERTHOLET - Médy KHEBIBECHE - Jean-Baptiste MERCIER \n Bastien PLANEILLE - Corentin VALLIER");
 		}
-
-		if(selectedItem == this.rotate)
-		{
-			if(this.image.getIcon() == null)
-			{
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			}
-			else
-			{
-				//TODO
-			}
-		}
-
-		if(selectedItem == this.select)
-		{
-			if(this.image.getIcon() == null)
-			{
-				JOptionPane.showMessageDialog(this.window, "No file selected");
-			}
-			else
-			{
-				//TODO
-			}
-		}
-
+		
 		if(selectedItem == this.saveFile)
 		{
 			if(this.image.getIcon() == null)
@@ -529,9 +365,9 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				{
 					JFileChooser directoryChooser = new JFileChooser();
 					JOptionPane nameChooser = new JOptionPane();
-
+					
 					directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
+					
 					if(this.wasSaved)
 					{
 						this.window.setTitle("Photop' : "+this.imageName+".png");
@@ -542,7 +378,7 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 					{
 						String showInputDialog = nameChooser.showInputDialog(window,"Name of the image ?");
 						this.imageName = showInputDialog;
-
+						
 						if(this.imageName != null)
 						{
 							if(directoryChooser.showOpenDialog(window) == JFileChooser.APPROVE_OPTION)
@@ -559,11 +395,69 @@ public class TopMenuBar extends JMenuBar implements ActionListener
 				} 
 				catch (IOException e)
 				{
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}
 	}
+
+	
+	public String getImageName()
+	{
+		return imageName;
+	}
+
+	public void setImageName(String imageName)
+	{
+		this.imageName = imageName;
+	}
+
+
+	public boolean isWasSaved()
+	{
+		return wasSaved;
+	}
+
+	public void setWasSaved(boolean wasSaved)
+	{
+		this.wasSaved = wasSaved;
+	}
+
+	public String getPath()
+	{
+		return path;
+	}
+
+	public void setPath(String path)
+	{
+		this.path = path;
+	}
+
+	public void setWindow(JFrame window)
+	{
+		this.window = window;
+	}
+
+	public void setCurrentImage(BufferedImage currentImage)
+	{
+		this.currentImage = currentImage;
+	}
+
+	public JFrame getWindow()
+	{
+		return window;
+	}
+
+	public BufferedImage getCurrentImage()
+	{
+		return currentImage;
+	}
+
+	public JLabel getImage()
+	{
+		return image;
+	}
+
+	
 }
 

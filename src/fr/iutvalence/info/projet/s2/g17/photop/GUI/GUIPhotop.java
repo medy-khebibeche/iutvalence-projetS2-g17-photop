@@ -1,8 +1,9 @@
 package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 
-import java.awt.Image;
-import java.awt.Toolkit;
 
+import java.awt.BorderLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 //TODO javadoc
 import javax.swing.WindowConstants;
@@ -32,6 +33,14 @@ public class GUIPhotop implements Runnable
 	private TopMenuBar topMenuBar;
 	
 	/**
+	 * the drawing panel
+	 */
+	private DrawPanel drawPanel;
+
+	private MenuBar menuBar;
+	
+	
+	/**
 	 * the constructor
 	 * @param photop
 	 */
@@ -46,12 +55,25 @@ public class GUIPhotop implements Runnable
 	private void GUIPhotopCreator()
 	{
 		this.window = new JFrame();
-		// window size and location
-		this.window.setSize(800,800);
+		this.window.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		this.window.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		this.window.setLocationRelativeTo(null);
+		
+		/**
+		 * reaching the icon through the path of the package
+		 */
+		ImageIcon icon = new ImageIcon(getClass().getResource("/fr/iutvalence/info/projet/s2/g17/photop/GUI/123.png"));
+		this.window.setIconImage(icon.getImage());
+		this.window.setTitle("Photop'");
+	
+		this.drawPanel = new DrawPanel();
+//		this.topMenuBar = new TopMenuBar(this.window, this.drawPanel);
+//		this.topMenuBar.initTopMenuBar(this.window, this.drawPanel);
+//		this.window.getContentPane().add(drawPanel);
 
-		this.window.setJMenuBar(new TopMenuBar(this.window));
+		this.menuBar = new MenuBar(this.drawPanel);
+		this.menuBar.initMenu(this.window);
+		this.window.getContentPane().add(drawPanel);
 		this.window.setVisible(true);
 	}
 
