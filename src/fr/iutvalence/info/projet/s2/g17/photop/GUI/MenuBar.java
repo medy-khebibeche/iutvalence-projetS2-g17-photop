@@ -33,6 +33,10 @@ public class MenuBar extends JMenuBar
 	private JMenu edition;
 	private JMenuItem erase;
 	private JMenuItem eraseAll;
+	private JMenu brush;
+	private JMenuItem increaseSize;
+	private JMenuItem decreaseSize;
+	
 	private JMenu changeColor;
 	private JMenuItem white;
 	private JMenuItem yellow;
@@ -91,6 +95,10 @@ public class MenuBar extends JMenuBar
 		this.rectangle = new JMenuItem("Rectangle");
 		this.square = new JMenuItem("Square");
 		
+		this.brush = new JMenu("Brush size");
+		this.increaseSize = new JMenuItem("Increase +");
+		this.decreaseSize = new JMenuItem("Decrease -");
+		
 		this.embellishement = new JMenu("Add embelishement");
 		this.heart = new JMenuItem("Heart");
 		this.star = new JMenuItem("Star");
@@ -98,8 +106,8 @@ public class MenuBar extends JMenuBar
 		this.about = new JMenu("About");
 		this.aboutPhotop = new JMenuItem("About Photop'");
 		this.aboutUs = new JMenuItem("About us");
-		
 	}
+	
 	/**
 	 * Initializes the MenuBar and adds ActionListener and ActionPerformed
 	 * @param window
@@ -108,7 +116,6 @@ public class MenuBar extends JMenuBar
 	{	
 		openImage.addActionListener(new ActionListener()
 		{
-			
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
@@ -141,6 +148,7 @@ public class MenuBar extends JMenuBar
 				}						
 			}
 		});
+		
 		erase.addActionListener(new ActionListener()
 		{
 			@Override
@@ -149,6 +157,7 @@ public class MenuBar extends JMenuBar
 				drawPanel.erase();				
 			}
 		});
+		
 		eraseAll.addActionListener(new ActionListener()
 		{
 			@Override
@@ -207,30 +216,37 @@ public class MenuBar extends JMenuBar
 			public void actionPerformed(ActionEvent e) {
 				drawPanel.setPointerColor(Color.white);
 			}});
+		
 		yellow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				drawPanel.setPointerColor(Color.yellow);
 			}});
+		
 		orange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				drawPanel.setPointerColor(Color.orange);
 			}});
+		
 		red.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				drawPanel.setPointerColor(Color.red);
 			}});
+		
 		magenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				drawPanel.setPointerColor(Color.magenta);
 			}});
+		
 		blue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				drawPanel.setPointerColor(Color.blue);
 			}});
+		
 		green.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				drawPanel.setPointerColor(Color.green);
 			}});
+		
 		black.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				drawPanel.setPointerColor(Color.black);
@@ -244,12 +260,40 @@ public class MenuBar extends JMenuBar
 				JOptionPane.showMessageDialog(null, "Welcome on Photop !");				
 			}
 		});
+		
 		aboutUs.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
 				JOptionPane.showMessageDialog(null, "Creators : \n Mathie BERTHOLET - Médy KHEBIBECHE - Jean-Baptiste MERCIER - Bastien PLANEILLE - Corentin VALLIER");				
+			}
+		});
+		
+		heart.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				
+			}
+		});
+		
+		increaseSize.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				drawPanel.setPointerSize(10);
+			}
+		});
+		
+		decreaseSize.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				drawPanel.setPointerSize(-10);
 			}
 		});
 		
@@ -284,6 +328,12 @@ public class MenuBar extends JMenuBar
 		changeColor.add(green);
 		changeColor.add(black);
 		edition.add(changeColor);
+		
+		increaseSize.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.CTRL_DOWN_MASK));
+		brush.add(increaseSize);
+		decreaseSize.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, KeyEvent.CTRL_DOWN_MASK));
+		brush.add(decreaseSize);
+		edition.add(brush);
 		
 		embellishement.add(star);
 		embellishement.add(heart);

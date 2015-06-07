@@ -82,7 +82,5 @@ public class GUIPhotop implements Runnable
 		this.GUIPhotopCreator();
 	}
 
-
-
 }
 
