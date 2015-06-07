@@ -69,11 +69,16 @@ public class MenuBar extends JMenuBar
 	private JMenuItem aboutPhotop;
 	private JMenuItem aboutUs;
 	
+	private boolean imageAlreadySaved;
+	private String imagePath;
+	private String imageName;
+	private BufferedImage currentImage;
+	
 	private DrawPanel drawPanel;
 	
 	public MenuBar(DrawPanel drawPanel)
 	{
-		
+		this.imageAlreadySaved = false;
 		this.menuBar = new JMenuBar();
 		
 		this.drawPanel = drawPanel;
@@ -193,32 +198,92 @@ public class MenuBar extends JMenuBar
 			public void actionPerformed(ActionEvent e)
 			{
 				JFileChooser directoryChooser = new JFileChooser();
-				
 				directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				String imageName = JOptionPane.showInputDialog(drawPanel,"Name of the image ?");
 				
-				
-				if(directoryChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+				if(imageAlreadySaved)
 				{
-					String path = directoryChooser.getSelectedFile().getPath();
 					try
 					{
+						ImageIO.write( currentImage, "PNG", new File(imagePath+"/"+imageName+".PNG"));
+					} 
+					catch (IOException e1)
+					{
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
+				} 
+				else
+				{
+				imageName = JOptionPane.showInputDialog(drawPanel,"Name of the image ?");
+				
+				if(imageName != null)
+				{
+					if(directoryChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+					{
+						imagePath = directoryChooser.getSelectedFile().getPath();
 						try
 						{
-							BufferedImage image = new Robot().createScreenCapture(new Rectangle(drawPanel.getLocationOnScreen().x, drawPanel.getLocationOnScreen().y, drawPanel.getWidth(), drawPanel.getHeight()));
-							ImageIO.write(image, "PNG", new File(path+"/"+imageName+".PNG"));
+							try
+							{
+								currentImage = new Robot().createScreenCapture(new Rectangle(drawPanel.getLocationOnScreen().x, drawPanel.getLocationOnScreen().y, drawPanel.getWidth(), drawPanel.getHeight()));
+								ImageIO.write(currentImage, "PNG", new File(imagePath+"/"+imageName+".PNG"));
+								JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
+								imageAlreadySaved = true;
+							} 
+							catch (AWTException e1)
+							{
+								e1.printStackTrace();
+							}
 						} 
-						catch (AWTException e1)
+						catch (IOException e1)
 						{
 							e1.printStackTrace();
 						}
-					} catch (IOException e1)
-					{
-						e1.printStackTrace();
 					}
 				}
 			}
+			}
 				
+		});
+		
+		saveAsImage.addActionListener(new ActionListener()
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				JFileChooser directoryChooser = new JFileChooser();
+				directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				imageName = JOptionPane.showInputDialog(drawPanel,"Name of the image ?");
+				
+				if(imageName != null)
+				{
+					if(directoryChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+					{
+						imagePath = directoryChooser.getSelectedFile().getPath();
+						try
+						{
+							try
+							{
+								currentImage = new Robot().createScreenCapture(new Rectangle(drawPanel.getLocationOnScreen().x, drawPanel.getLocationOnScreen().y, drawPanel.getWidth(), drawPanel.getHeight()));
+								ImageIO.write(currentImage, "PNG", new File(imagePath+"/"+imageName+".PNG"));
+								JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
+								imageAlreadySaved = true;
+							} 
+							catch (AWTException e1)
+							{
+								e1.printStackTrace();
+							}
+						} 
+						catch (IOException e1)
+						{
+							e1.printStackTrace();
+						}
+					}
+				}
+				
+			}
 		});
 		
 		circle.addActionListener(new ActionListener()
@@ -390,16 +455,5 @@ public class MenuBar extends JMenuBar
 		menuBar.add(edition);
 		menuBar.add(about);
 		window.setJMenuBar(menuBar);
-	}
-	
-	public BufferedImage createImage(JPanel panel)
-	{
-			 int w = panel.getWidth();
-		     int h = panel.getHeight();
-		     BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-		     Graphics2D g = bi.createGraphics();
-		     panel.paint(g);
-		     return bi;
-
 	}
 }
