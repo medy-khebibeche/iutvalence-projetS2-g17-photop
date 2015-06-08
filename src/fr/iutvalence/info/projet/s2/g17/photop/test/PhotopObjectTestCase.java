@@ -26,10 +26,11 @@ public class PhotopObjectTestCase extends TestCase {
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
 	 */
-	protected void setUp() throws Exception {
-		super.setUp();
-		photopObject = new PhotopObject(position,100);
-		}
+//	protected void setUp() throws Exception {
+//		super.setUp();
+//		//PhotopObject is an abstract class !!!!
+//		//photopObject = new PhotopObject(position,100);
+//		}
 
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#tearDown()
