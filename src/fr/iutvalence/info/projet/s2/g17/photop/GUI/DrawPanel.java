@@ -20,15 +20,26 @@ import fr.iutvalence.info.projet.s2.g17.photop.TypeShape;
 
 public class DrawPanel extends JPanel
 {
+	/**
+	 * The pointer
+	 */
 	private Pointer point;
 	
+	/**
+	 * The image
+	 */
 	private Image image;
 	
+	// c'est quoi ce truc ?
 	private ArrayList<PhotopShape> points = new ArrayList<PhotopShape>();  
 	
+
 	private int pointsListSize = this.points.size();
 	
-	
+	/**
+	 * This method allows to draw an image in the panel
+	 * @param img
+	 */
 	public DrawPanel(Image img)
 	{
 		this.point = new Pointer();
@@ -53,7 +64,10 @@ public class DrawPanel extends JPanel
 		
 	}
 	
-	
+	/**
+	 * This method allows to paint a component
+	 * @param g
+	 */
 	public void paintComponent(Graphics g) 
 	{
 		
@@ -101,7 +115,9 @@ public class DrawPanel extends JPanel
 	}
 	
 	
-	
+	/**
+	 * This method allows to erase the previous paint
+	 */
 	public void erase()
 	{
 		if(pointsListSize!=0)
@@ -113,27 +129,46 @@ public class DrawPanel extends JPanel
 		repaint();
 	}
 	
+	/**
+	 * This method allows to erase all the paint
+	 */
 	public void eraseAll()
 	{
 		this.points = new ArrayList<PhotopShape>();
 		repaint();
 	}
 	
+	/**
+	 * The setter of pointer color
+	 * @param c
+	 */
 	public void setPointerColor(Color c)
 	{
 		this.point.setColor(c);
 	}
 	
+	/**
+	 * The setter of pointer type
+	 * @param type
+	 */
 	public void setPointerType(TypeShape type)
 	{
 		this.point.setShape(type);
 	}
 	
+	/**
+	 * the setter of image
+	 * @param image
+	 */
 	public void setImage(Image image)
 	{
 		this.image = image;
 	}
 	
+	/**
+	 * the setter of pointer size
+	 * @param size
+	 */
 	public void setPointerSize(int size)
 	{
 		this.point.setSize(size+this.point.getSize());

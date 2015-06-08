@@ -27,55 +27,177 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import fr.iutvalence.info.projet.s2.g17.photop.TypeShape;
-
+/**
+ * The class MenuBar where there are the different options and icons of the application
+ * @author Medy
+ *
+ */
 public class MenuBar extends JMenuBar
 {
+	/**
+	 * The menubar
+	 */
 	private JMenuBar menuBar;
+	/**
+	 * The tab file
+	 */
 	private JMenu file;
+	/**
+	 * The menu item "open image"
+	 */
 	private JMenuItem openImage;
+	/**
+	 * The menu item "create image"
+	 */
 	private JMenuItem createImage;
+	/**
+	 * The menu item "save image"
+	 */
 	private JMenuItem saveImage;
+	/**
+	 * The menu item "save as"
+	 */
 	private JMenuItem saveAsImage;
+	/**
+	 * The menu item "Quit"
+	 */
 	private JMenuItem quit;
 	
+	/**
+	 * The tab edition
+	 */
 	private JMenu edition;
+	/**
+	 * The menu item "erase"
+	 */
 	private JMenuItem erase;
+	/**
+	 * The menu item "erase all"
+	 */
 	private JMenuItem eraseAll;
+	
+	/**
+	 * The menu brus
+	 */
 	private JMenu brush;
+	/**
+	 * The menu item "increase size"
+	 */
 	private JMenuItem increaseSize;
+	/**
+	 * The menu item "decrease size"
+	 */
 	private JMenuItem decreaseSize;
 	
+	/**
+	 * The tabe change color
+	 */
 	private JMenu changeColor;
+	/**
+	 * The menu item "white"
+	 */
 	private JMenuItem white;
+	/**
+	 * The menu item "yellow"
+	 */
 	private JMenuItem yellow;
+	/**
+	 * The menu item "orange"
+	 */
 	private JMenuItem orange;
+	/**
+	 * The menu item "red"
+	 */
 	private JMenuItem red;
+	/**
+	 * The menu item "magenta"
+	 */
 	private JMenuItem magenta;
+	/**
+	 * The menu item "blue"
+	 */
 	private JMenuItem blue;
+	/**
+	 * The menu item "green"
+	 */
 	private JMenuItem green;
+	/**
+	 * The menu item "black"
+	 */
 	private JMenuItem black;
-	
+	/**
+	 * The tab shape
+	 */
 	private JMenu shape;
+	/**
+	 * The menu item "circle"
+	 */
 	private JMenuItem circle;
+	/**
+	 * The menu item "triangle"
+	 */
 	private JMenuItem triangle;
+	/**
+	 * The menu item "rectangle"
+	 */
 	private JMenuItem rectangle;
+	/**
+	 * The menu item "square"
+	 */
 	private JMenuItem square;
 	
+	/**
+	 * The tab embellishement
+	 */
 	private JMenu embellishement;
+	/**
+	 * The menu item "heart"
+	 */
 	private JMenuItem heart;
+	/**
+	 * The menu item "photop"
+	 */
 	private JMenuItem photop;
 	
+	/**
+	 * The tab about
+	 */
 	private JMenu about;
+	/**
+	 * The menu item "about photop"
+	 */
 	private JMenuItem aboutPhotop;
+	/**
+	 * The menu item "about us"
+	 */
 	private JMenuItem aboutUs;
 	
+	/**
+	 * The boolean which tell if the image is already saved
+	 */
 	private boolean imageAlreadySaved;
+	/**
+	 * The path of the file
+	 */
 	private String imagePath;
+	/**
+	 * the name of the image
+	 */
 	private String imageName;
+	/**
+	 * The current image
+	 */
 	private BufferedImage currentImage;
 	
+	/**
+	 * The drawpanel of the application
+	 */
 	private DrawPanel drawPanel;
 	
+	/**
+	 * The constructor of the menubar
+	 * @param drawPanel
+	 */
 	public MenuBar(DrawPanel drawPanel)
 	{
 		this.imageAlreadySaved = false;
@@ -388,7 +510,7 @@ public class MenuBar extends JMenuBar
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				JOptionPane.showMessageDialog(null, "Creators : \n Mathie BERTHOLET - Médy KHEBIBECHE - Jean-Baptiste MERCIER - Bastien PLANEILLE - Corentin VALLIER");				
+				JOptionPane.showMessageDialog(null, "Creators : \n Mathie BERTHOLET - Mï¿½dy KHEBIBECHE - Jean-Baptiste MERCIER - Bastien PLANEILLE - Corentin VALLIER");				
 			}
 		});
 		
