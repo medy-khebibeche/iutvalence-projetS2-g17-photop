@@ -290,9 +290,10 @@ public class MenuBar extends JMenuBar
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				
 				int height = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which height do you want ?"));
 				int width = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which width do you want ?"));
-				
+				drawPanel.eraseAll();
 				window.setSize(width, height);
 				window.setResizable(false);
 				
