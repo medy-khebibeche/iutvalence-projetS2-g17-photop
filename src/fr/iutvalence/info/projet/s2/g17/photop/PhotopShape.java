@@ -2,9 +2,8 @@ package fr.iutvalence.info.projet.s2.g17.photop;
 import java.awt.Color;
 
 /**
- * 
+ * A photopShape has a color, a type (square, circle...), a position and a dimension
  * @author Bastien, Mathie
- *
  */
 public class PhotopShape extends PhotopObject
 {
@@ -20,20 +19,20 @@ public class PhotopShape extends PhotopObject
 	
 	/**
 	 * The constructor of the shape
-	 * @param x
-	 * @param y
+	 * @param x the coordinate on the X axe
+	 * @param y the coordinate on the Y axe
 	 * @param point
 	 */
 	public PhotopShape(int x, int y, Pointer point)
 	{
 		super(new Position(x, y), point.getSize());
-
+		
 		this.color = point.getColor();
 		this.type = point.getType();
 	}
 	
 	/**
-	 * get the color of the shape
+	 * gets the color of the shape
 	 * @return color
 	 */
 	public Color getColor() 
@@ -42,7 +41,7 @@ public class PhotopShape extends PhotopObject
 	}
 	
 	/**
-	 * set a new color to the shape
+	 * sets a new color to the shape
 	 * @param color
 	 */
 	public void setColor(Color color) 
@@ -51,7 +50,7 @@ public class PhotopShape extends PhotopObject
 	}
 	
 	/**
-	 * Get the type of the shape
+	 * Gets the type of the shape
 	 * @return type
 	 */
 	public TypeShape getType() 
@@ -60,7 +59,7 @@ public class PhotopShape extends PhotopObject
 	}
 	
 	/**
-	 * Set a new type to the shape
+	 * Sets a new type to the shape
 	 * @param type
 	 */
 	public void setType(TypeShape type) 
@@ -69,7 +68,7 @@ public class PhotopShape extends PhotopObject
 	}
 	
 	/**
-	 * get the abscissa position of the object
+	 * gets the abscissa position of the object
 	 * @return getObjectPosition().getPosX()
 	 */
 	public int getPosX()
@@ -78,7 +77,7 @@ public class PhotopShape extends PhotopObject
 	}
 	
 	/**
-	 * get the ordinate position of the object
+	 * gets the ordinate position of the object
 	 * @return getObjectPosition().getPosY()
 	 */
 	public int getPosY()
@@ -86,7 +85,7 @@ public class PhotopShape extends PhotopObject
 		return this.getObjectPosition().getPosY();
 	}
 	/**
-	 * Get the size of the object
+	 * Gets the size of the object
 	 * @return getObjectDimension()
 	 */
 	public int getSize()
@@ -94,6 +93,3 @@ public class PhotopShape extends PhotopObject
 		return this.getObjectDimension();
 	}
 }
-
-
-

@@ -7,28 +7,28 @@ package fr.iutvalence.info.projet.s2.g17.photop;
  */
 public class PhotopImage extends PhotopObject
 {
-
+	
 	/**
 	 *represents the name of the image
 	 */
 	private String name;
-
+	
 	/**
 	 * represents the extension of the image (bmp, png, jpg)
 	 */
 	private String imageExtension;
-
+	
 	/**
 	 * represents the state of the image, is it saved or not
 	 */
 	private boolean isSaved;
-
+	
 	/**
 	 * represents the path of the image
 	 */
 	private String path;
-
-
+	
+	
 	/**
 	 * creates an image
 	 * @param name the name of the image
@@ -44,7 +44,7 @@ public class PhotopImage extends PhotopObject
 		this.imageExtension = imageExtension;
 		this.isSaved = isSaved;
 	}
-
-
-
+	
+	
+	
 }

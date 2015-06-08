@@ -37,7 +37,7 @@ public class Position
 	}
 
 	/**
-	 * Set the object's position on the X axe with a given coordinate 
+	 * Sets the object's position on the X axe with a given coordinate 
 	 * @param posX the given X coordinate
 	 */
 	public void setPosX(int posX)
@@ -55,7 +55,7 @@ public class Position
 	}
 
 	/**
-	 * Set the object's position on the Y axe with a given coordinate 
+	 * Sets the object's position on the Y axe with a given coordinate 
 	 * @param posY the given Y coordinate
 	 */
 	public void setPosY(int posY)

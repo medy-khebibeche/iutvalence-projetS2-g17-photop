@@ -18,27 +18,35 @@ import javax.swing.JPanel;
 import fr.iutvalence.info.projet.s2.g17.photop.Pointer;
 import fr.iutvalence.info.projet.s2.g17.photop.TypeShape;
 
+/**
+ * A DrawPanel is the panel used to draw
+ * @author Mathie
+ */
 public class DrawPanel extends JPanel
 {
 	/**
-	 * The pointer
+	 * The pointer used to draw on the DrawPanel
 	 */
 	private Pointer point;
 	
 	/**
-	 * The image
+	 * The image selected in the JFileChooser (null if not)
 	 */
 	private Image image;
 	
-	// c'est quoi ce truc ?
+	/**
+	 * An array of PhotopShape : represents all the PhotopShape draw on the DrawPanel
+	 */
 	private ArrayList<PhotopShape> points = new ArrayList<PhotopShape>();  
 	
-
+	/**
+	 * 
+	 */
 	private int pointsListSize = this.points.size();
 	
 	/**
-	 * This method allows to draw an image in the panel
-	 * @param img
+	 * Initializes the DrawPanel
+	 * @param img the image selected in the JFileChooser
 	 */
 	public DrawPanel(Image img)
 	{
@@ -65,7 +73,7 @@ public class DrawPanel extends JPanel
 	}
 	
 	/**
-	 * This method allows to paint a component
+	 * Draws the selected image and all the PhotopShapes contain in the array
 	 * @param g
 	 */
 	public void paintComponent(Graphics g) 
@@ -90,10 +98,10 @@ public class DrawPanel extends JPanel
 			else if(photopShape.getType().equals(TypeShape.TRIANGLE))
 			{
 				Polygon poly = new Polygon(
-	                    new int[]{photopShape.getPosX()+50, photopShape.getPosX()+100, photopShape.getPosX()},
-	                    new int[]{photopShape.getPosY(), photopShape.getPosY()+100, photopShape.getPosY()+100},
-	                    3);
-			     g.fillPolygon(poly);
+						new int[]{photopShape.getPosX()+50, photopShape.getPosX()+100, photopShape.getPosX()},
+						new int[]{photopShape.getPosY(), photopShape.getPosY()+100, photopShape.getPosY()+100},
+						3);
+				g.fillPolygon(poly);
 			}
 			else if(photopShape.getType().equals(TypeShape.RECTANGLE))
 			{
@@ -116,7 +124,7 @@ public class DrawPanel extends JPanel
 	
 	
 	/**
-	 * This method allows to erase the previous paint
+	 * Erases the last PhotopShape painted
 	 */
 	public void erase()
 	{
@@ -130,7 +138,7 @@ public class DrawPanel extends JPanel
 	}
 	
 	/**
-	 * This method allows to erase all the paint
+	 * Erases all the PhotopShapes painted
 	 */
 	public void eraseAll()
 	{
@@ -139,8 +147,8 @@ public class DrawPanel extends JPanel
 	}
 	
 	/**
-	 * The setter of pointer color
-	 * @param c
+	 * Sets the pointer's color with a given color
+	 * @param color
 	 */
 	public void setPointerColor(Color c)
 	{
@@ -148,7 +156,7 @@ public class DrawPanel extends JPanel
 	}
 	
 	/**
-	 * The setter of pointer type
+	 * Sets the pointer's type with a given type
 	 * @param type
 	 */
 	public void setPointerType(TypeShape type)
@@ -157,7 +165,7 @@ public class DrawPanel extends JPanel
 	}
 	
 	/**
-	 * the setter of image
+	 * Sets the pointer's image with a given image
 	 * @param image
 	 */
 	public void setImage(Image image)
@@ -166,12 +174,12 @@ public class DrawPanel extends JPanel
 	}
 	
 	/**
-	 * the setter of pointer size
+	 * Sets the pointer's size with a given size
 	 * @param size
 	 */
 	public void setPointerSize(int size)
 	{
 		this.point.setSize(size+this.point.getSize());
 	}
-
+	
 }

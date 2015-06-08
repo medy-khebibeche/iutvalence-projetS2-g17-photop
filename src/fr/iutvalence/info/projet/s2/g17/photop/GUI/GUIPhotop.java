@@ -1,20 +1,13 @@
 package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 
-
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-//TODO javadoc
 import javax.swing.WindowConstants;
-
 import fr.iutvalence.info.projet.s2.g17.photop.Photop;
 
 /**
  * The classGUIPhotop where we create the GUI
- * @author Medy
- *
  */
 public class GUIPhotop implements Runnable
 {
@@ -33,11 +26,14 @@ public class GUIPhotop implements Runnable
 	 */
 	private DrawPanel drawPanel;
 
+	/**
+	 * the MenuBar
+	 */
 	private MenuBar menuBar;
 	
 	
 	/**
-	 * the constructor
+	 * the constructor of the GUI
 	 * @param photop
 	 */
 	public GUIPhotop (Photop photop)
@@ -46,7 +42,7 @@ public class GUIPhotop implements Runnable
 	}
 	
 	/**
-	 * The creator of the GUI with parameters
+	 * Creates the GUI
 	 */
 	private void GUIPhotopCreator()
 	{

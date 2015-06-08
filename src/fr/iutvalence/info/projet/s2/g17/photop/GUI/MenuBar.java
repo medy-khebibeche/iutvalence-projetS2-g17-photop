@@ -3,7 +3,6 @@ package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -11,12 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -27,10 +23,10 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import fr.iutvalence.info.projet.s2.g17.photop.TypeShape;
+
 /**
- * The class MenuBar where there are the different options and icons of the application
- * @author Medy
- *
+ * Represents the menu bar of the application, it gathers all the Photop's function like draw, change the pointer's size...
+ * @author Mathie, Jean-Batiste, Medy
  */
 public class MenuBar extends JMenuBar
 {
@@ -173,7 +169,7 @@ public class MenuBar extends JMenuBar
 	private JMenuItem aboutUs;
 	
 	/**
-	 * The boolean which tell if the image is already saved
+	 * Represents if the image is already saved or not
 	 */
 	private boolean imageAlreadySaved;
 	/**
@@ -215,6 +211,7 @@ public class MenuBar extends JMenuBar
 		this.edition = new JMenu("Edition");
 		this.erase = new JMenuItem("Erase");
 		this.eraseAll = new JMenuItem("Erase all");
+		
 		this.changeColor = new JMenu("Change color");
 		this.white = new JMenuItem("White");
 		this.yellow = new JMenuItem("Yellow");
@@ -224,7 +221,7 @@ public class MenuBar extends JMenuBar
 		this.blue = new JMenuItem("Blue");
 		this.green = new JMenuItem("Green");
 		this.black = new JMenuItem("Black");
-		this.shape = new JMenu("Add shape");
+		this.shape = new JMenu("Change shape");
 		this.circle = new JMenuItem("Circle");
 		this.triangle = new JMenuItem("Triangle");
 		this.rectangle = new JMenuItem("Rectangle");
@@ -330,41 +327,40 @@ public class MenuBar extends JMenuBar
 					} 
 					catch (IOException e1)
 					{
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
 				} 
 				else
 				{
-				imageName = JOptionPane.showInputDialog(drawPanel,"Name of the image ?");
-				
-				if(imageName != null)
-				{
-					if(directoryChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+					imageName = JOptionPane.showInputDialog(drawPanel,"Name of the image ?");
+					
+					if(imageName != null)
 					{
-						imagePath = directoryChooser.getSelectedFile().getPath();
-						try
+						if(directoryChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
 						{
+							imagePath = directoryChooser.getSelectedFile().getPath();
 							try
 							{
-								currentImage = new Robot().createScreenCapture(new Rectangle(drawPanel.getLocationOnScreen().x, drawPanel.getLocationOnScreen().y, drawPanel.getWidth(), drawPanel.getHeight()));
-								ImageIO.write(currentImage, "PNG", new File(imagePath+"/"+imageName+".PNG"));
-								JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
-								imageAlreadySaved = true;
+								try
+								{
+									currentImage = new Robot().createScreenCapture(new Rectangle(drawPanel.getLocationOnScreen().x, drawPanel.getLocationOnScreen().y, drawPanel.getWidth(), drawPanel.getHeight()));
+									ImageIO.write(currentImage, "PNG", new File(imagePath+"/"+imageName+".PNG"));
+									JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
+									imageAlreadySaved = true;
+								} 
+								catch (AWTException e1)
+								{
+									e1.printStackTrace();
+								}
 							} 
-							catch (AWTException e1)
+							catch (IOException e1)
 							{
 								e1.printStackTrace();
 							}
-						} 
-						catch (IOException e1)
-						{
-							e1.printStackTrace();
 						}
 					}
 				}
-			}
 			}
 		});
 		

@@ -11,12 +11,12 @@ public abstract class PhotopObject
 	 * the coordinate of the object
 	 */
 	private Position objectPosition;
-
+	
 	/**
 	 * the dimension of the object
 	 */
 	private int objectDimension;
-
+	
 	/**
 	 * the constructor of an object
 	 * @param objectPosition the coordinate of the object
@@ -27,7 +27,7 @@ public abstract class PhotopObject
 		this.objectPosition = objectPosition;
 		this.objectDimension = objectDimension;
 	}
-
+	
 	/**
 	 * gets the object's position
 	 * @return objectPosition the object's position
@@ -38,7 +38,7 @@ public abstract class PhotopObject
 	}
 	
 	/**
-	 * Set a new position to the object
+	 * Sets a new position to the object
 	 * @param objectPosition
 	 */
 	public void setObjectPosition(Position objectPosition)
@@ -48,7 +48,7 @@ public abstract class PhotopObject
 	
 	/**
 	 * gets the dimension of the object
-	 * @return
+	 * @return objectDimension
 	 */
 	public int getObjectDimension()
 	{
@@ -56,7 +56,7 @@ public abstract class PhotopObject
 	}
 	
 	/**
-	 * set the new dimension to the object
+	 * sets the new dimension to the object
 	 * @param objectDimension
 	 */
 	public void setObjectDimension(int objectDimension)

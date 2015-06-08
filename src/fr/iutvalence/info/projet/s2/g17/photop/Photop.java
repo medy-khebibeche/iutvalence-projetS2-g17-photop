@@ -27,7 +27,7 @@ public class Photop
 	 * The GUI of the application Photop
 	 */
 	private GUIPhotop guiPhotop;
-
+	
 	/**
 	 * The association of the GUI and the application
 	 * @param guiPhotop
@@ -35,11 +35,11 @@ public class Photop
 	public void GUIAssociation(GUIPhotop guiPhotop)
 	{
 		this.guiPhotop = guiPhotop;
-
+		
 	}
-
-
-
-
-
+	
+	
+	
+	
+	
 }

@@ -10,7 +10,7 @@ import fr.iutvalence.info.projet.s2.g17.photop.GUI.GUIPhotop;
  */
 public class Main
 {
-
+	
 	/**
 	 * The main of the application
 	 * @param args
@@ -18,13 +18,13 @@ public class Main
 	public static void main(String[] args)
 	{
 		Photop photop = new Photop();
-
+		
 		GUIPhotop guiPhotop = new GUIPhotop(photop);	
-
+		
 		photop.GUIAssociation(guiPhotop);
-
+		
 		SwingUtilities.invokeLater(guiPhotop);
-
+		
 	}
-
+	
 }
