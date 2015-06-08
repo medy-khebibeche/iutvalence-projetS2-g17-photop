@@ -40,11 +40,6 @@ public class DrawPanel extends JPanel
 	private ArrayList<PhotopShape> points = new ArrayList<PhotopShape>();  
 	
 	/**
-	 * 
-	 */
-	private int pointsListSize = this.points.size();
-	
-	/**
 	 * Initializes the DrawPanel
 	 * @param img the image selected in the JFileChooser
 	 */
@@ -54,7 +49,6 @@ public class DrawPanel extends JPanel
 		this.image = img;
 		this.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
-				pointsListSize = points.size();
 				points.add(new PhotopShape(e.getX() - (point.getSize() / 2), e.getY() - (point.getSize() / 2),point));
 				repaint();
 			}
@@ -62,7 +56,6 @@ public class DrawPanel extends JPanel
 		
 		this.addMouseMotionListener(new MouseMotionListener(){
 			public void mouseDragged(MouseEvent e) {
-				pointsListSize = points.size();
 				points.add(new PhotopShape(e.getX() - (point.getSize() / 2), e.getY() - (point.getSize() / 2),point));
 				repaint();
 			}
@@ -78,7 +71,6 @@ public class DrawPanel extends JPanel
 	 */
 	public void paintComponent(Graphics g) 
 	{
-		
 		g.setColor(Color.white);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		g.drawImage(this.image, getX(), getY(), null);
@@ -117,7 +109,7 @@ public class DrawPanel extends JPanel
 			{
 				Image img = getToolkit().getImage(getClass().getResource("/fr/iutvalence/info/projet/s2/g17/photop/GUI/123.png"));
 				ImageObserver observer = null;
-				g.drawImage(img , photopShape.getPosX(), photopShape.getPosY(), observer);;	    
+				g.drawImage(img , photopShape.getPosX()-photopShape.getSize(), photopShape.getPosY()-photopShape.getSize(), observer);   
 			}	
 		}        
 	}
@@ -128,12 +120,10 @@ public class DrawPanel extends JPanel
 	 */
 	public void erase()
 	{
-		if(pointsListSize!=0)
+		if(this.points.size()!=0)
 		{
-			this.points.remove(pointsListSize-1);
-			this.pointsListSize = this.points.size();
+			this.points.remove(this.points.size()-1);
 		}
-		
 		repaint();
 	}
 	

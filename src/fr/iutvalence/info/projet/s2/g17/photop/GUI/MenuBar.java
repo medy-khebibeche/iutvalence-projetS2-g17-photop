@@ -261,7 +261,6 @@ public class MenuBar extends JMenuBar
 						Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 						double screenWidth = screenSize.getWidth();
 						double screenHeight = screenSize.getHeight();
-						//TODO Check verification for the size of the image
 						if(ImageIO.read(file).getWidth() > screenWidth || ImageIO.read(file).getHeight() > screenHeight )
 						{
 							JOptionPane.showMessageDialog(null, "Image resolution is too big.");
@@ -402,19 +401,17 @@ public class MenuBar extends JMenuBar
 				
 			}
 		});
+		
 		createImage.addActionListener(new ActionListener()
 		{
-			
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				
 				int height = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which height do you want ?"));
 				int width = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which width do you want ?"));
 				drawPanel.eraseAll();
 				window.setSize(width, height);
 				window.setResizable(false);
-				
 			}
 		});
 		
@@ -426,6 +423,7 @@ public class MenuBar extends JMenuBar
 				drawPanel.setPointerType(TypeShape.CIRCLE);				
 			}
 		});
+		
 		square.addActionListener(new ActionListener()
 		{
 			@Override
@@ -434,6 +432,7 @@ public class MenuBar extends JMenuBar
 				drawPanel.setPointerType(TypeShape.SQUARE);				
 			}
 		});
+		
 		rectangle.addActionListener(new ActionListener()
 		{
 			@Override
@@ -442,6 +441,7 @@ public class MenuBar extends JMenuBar
 				drawPanel.setPointerType(TypeShape.RECTANGLE);				
 			}
 		});
+		
 		triangle.addActionListener(new ActionListener()
 		{
 			@Override
@@ -450,7 +450,6 @@ public class MenuBar extends JMenuBar
 				drawPanel.setPointerType(TypeShape.TRIANGLE);				
 			}
 		});
-		
 		
 		white.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

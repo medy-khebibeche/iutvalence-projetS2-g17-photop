@@ -60,7 +60,6 @@ public class GUIPhotop implements Runnable
 	
 		this.drawPanel = new DrawPanel(null);
 
-		this.drawPanel.setPreferredSize(new Dimension(400, 500));
 		this.menuBar = new MenuBar(this.drawPanel);
 		this.menuBar.initMenu(this.window);
 		this.window.getContentPane().add(drawPanel);
