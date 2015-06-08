@@ -5,5 +5,7 @@ public enum TypeShape
 	CIRCLE,
 	SQUARE,
 	RECTANGLE,
-	TRIANGLE;
+	TRIANGLE, 
+	HEART, 
+	PHOTOP;
 }

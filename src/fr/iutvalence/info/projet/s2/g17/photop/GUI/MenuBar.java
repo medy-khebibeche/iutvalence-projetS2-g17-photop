@@ -63,7 +63,7 @@ public class MenuBar extends JMenuBar
 	
 	private JMenu embellishement;
 	private JMenuItem heart;
-	private JMenuItem star;
+	private JMenuItem photop;
 	
 	private JMenu about;
 	private JMenuItem aboutPhotop;
@@ -114,7 +114,7 @@ public class MenuBar extends JMenuBar
 		
 		this.embellishement = new JMenu("Add embelishement");
 		this.heart = new JMenuItem("Heart");
-		this.star = new JMenuItem("Star");
+		this.photop = new JMenuItem("Photop");
 		
 		this.about = new JMenu("About");
 		this.aboutPhotop = new JMenuItem("About Photop'");
@@ -244,7 +244,6 @@ public class MenuBar extends JMenuBar
 				}
 			}
 			}
-				
 		});
 		
 		saveAsImage.addActionListener(new ActionListener()
@@ -397,7 +396,16 @@ public class MenuBar extends JMenuBar
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				
+				drawPanel.setPointerType(TypeShape.HEART);
+			}
+		});
+		
+		photop.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				drawPanel.setPointerType(TypeShape.PHOTOP);
 			}
 		});
 		
@@ -416,6 +424,15 @@ public class MenuBar extends JMenuBar
 			public void actionPerformed(ActionEvent e)
 			{
 				drawPanel.setPointerSize(-10);
+			}
+		});
+		
+		heart.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				
 			}
 		});
 		
@@ -457,7 +474,7 @@ public class MenuBar extends JMenuBar
 		brush.add(decreaseSize);
 		edition.add(brush);
 		
-		embellishement.add(star);
+		embellishement.add(photop);
 		embellishement.add(heart);
 		edition.add(embellishement);
 		

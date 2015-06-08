@@ -2,6 +2,7 @@ package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -26,11 +27,6 @@ public class GUIPhotop implements Runnable
 	 * Photop
 	 */
 	private Photop photop;
-	
-	/**
-	 * The menubar
-	 */
-	private TopMenuBar topMenuBar;
 	
 	/**
 	 * the drawing panel
@@ -67,6 +63,8 @@ public class GUIPhotop implements Runnable
 		this.window.setTitle("Photop'");
 	
 		this.drawPanel = new DrawPanel(null);
+
+		this.drawPanel.setPreferredSize(new Dimension(400, 500));
 		this.menuBar = new MenuBar(this.drawPanel);
 		this.menuBar.initMenu(this.window);
 		this.window.getContentPane().add(drawPanel);

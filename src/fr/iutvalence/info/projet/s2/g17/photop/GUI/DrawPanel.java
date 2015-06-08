@@ -59,8 +59,7 @@ public class DrawPanel extends JPanel
 		
 		g.setColor(Color.white);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-		//TODO center the image
-		g.drawImage(this.image, this.getWidth()/2, this.getHeight()/2, null);
+		g.drawImage(this.image, getX(), getY(), null);
 		
 		for(PhotopShape photopShape : this.points)
 		{
@@ -77,8 +76,8 @@ public class DrawPanel extends JPanel
 			else if(photopShape.getType().equals(TypeShape.TRIANGLE))
 			{
 				Polygon poly = new Polygon(
-	                    new int[]{photopShape.getPosX()+50, photopShape.getPosX()+100, photopShape.getPosX()+0},
-	                    new int[]{photopShape.getPosY()+0, photopShape.getPosY()+100, photopShape.getPosY()+100},
+	                    new int[]{photopShape.getPosX()+50, photopShape.getPosX()+100, photopShape.getPosX()},
+	                    new int[]{photopShape.getPosY(), photopShape.getPosY()+100, photopShape.getPosY()+100},
 	                    3);
 			     g.fillPolygon(poly);
 			}
@@ -86,12 +85,18 @@ public class DrawPanel extends JPanel
 			{
 				g.fillRect(photopShape.getPosX(), photopShape.getPosY(), photopShape.getSize()+100, photopShape.getSize());
 			}	
-			else
+			else if(photopShape.getType().equals(TypeShape.HEART))
 			{
-				Image img = getToolkit().getImage("icones/heart2.png");
+				Image img = getToolkit().getImage(getClass().getResource("/fr/iutvalence/info/projet/s2/g17/photop/GUI/heart.png"));
 				ImageObserver observer = null;
-				g.drawImage(img , photopShape.getPosX(), photopShape.getPosY(), observer);	    
-			}		
+				g.drawImage(img , photopShape.getPosX(), photopShape.getPosY(), observer);;	    
+			}	
+			else if(photopShape.getType().equals(TypeShape.PHOTOP))
+			{
+				Image img = getToolkit().getImage(getClass().getResource("/fr/iutvalence/info/projet/s2/g17/photop/GUI/123.png"));
+				ImageObserver observer = null;
+				g.drawImage(img , photopShape.getPosX(), photopShape.getPosY(), observer);;	    
+			}	
 		}        
 	}
 	
@@ -133,6 +138,5 @@ public class DrawPanel extends JPanel
 	{
 		this.point.setSize(size+this.point.getSize());
 	}
-
 
 }
