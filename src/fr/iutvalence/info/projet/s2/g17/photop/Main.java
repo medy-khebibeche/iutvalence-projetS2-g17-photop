@@ -8,12 +8,11 @@ import fr.iutvalence.info.projet.s2.g17.photop.GUI.GUIPhotop;
  * The main of the application
  * @author Medy
  */
-
 public class Main
 {
 
 	/**
-	 * an array of String
+	 * The main of the application
 	 * @param args
 	 */
 	public static void main(String[] args)

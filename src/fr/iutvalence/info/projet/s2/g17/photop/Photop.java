@@ -23,8 +23,15 @@ import fr.iutvalence.info.projet.s2.g17.photop.GUI.GUIPhotop;
 
 public class Photop 
 {
+	/**
+	 * The GUI of the application Photop
+	 */
 	private GUIPhotop guiPhotop;
 
+	/**
+	 * The association of the GUI and the application
+	 * @param guiPhotop
+	 */
 	public void GUIAssociation(GUIPhotop guiPhotop)
 	{
 		this.guiPhotop = guiPhotop;

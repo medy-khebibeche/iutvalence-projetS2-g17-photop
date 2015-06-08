@@ -36,17 +36,29 @@ public abstract class PhotopObject
 	{
 		return objectPosition;
 	}
-
+	
+	/**
+	 * Set a new position to the object
+	 * @param objectPosition
+	 */
 	public void setObjectPosition(Position objectPosition)
 	{
 		this.objectPosition = objectPosition;
 	}
-
+	
+	/**
+	 * gets the dimension of the object
+	 * @return
+	 */
 	public int getObjectDimension()
 	{
 		return objectDimension;
 	}
-
+	
+	/**
+	 * set the new dimension to the object
+	 * @param objectDimension
+	 */
 	public void setObjectDimension(int objectDimension)
 	{
 		this.objectDimension = objectDimension;
