@@ -48,7 +48,7 @@ public class PointerTestCase extends TestCase {
 	
 	public void testPointer ()
 	{
-		assertNotNull("L'instance est créée", pointer);
+		assertNotNull("L'instance est crÃ©Ã©e", pointer);
 	}
 
 	/**

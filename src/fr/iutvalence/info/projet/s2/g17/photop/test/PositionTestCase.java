@@ -42,7 +42,7 @@ public class PositionTestCase extends TestCase {
 	 */
 	public final void testPosition() 
 	{
-		assertNotNull("L'instance est créée", position);
+		assertNotNull("L'instance est crÃ©Ã©e", position);
 	}
 
 	/**
