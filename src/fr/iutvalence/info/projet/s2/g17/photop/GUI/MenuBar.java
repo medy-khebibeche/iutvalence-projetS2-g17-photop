@@ -409,9 +409,16 @@ public class MenuBar extends JMenuBar
 			{
 				int height = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which height do you want ?"));
 				int width = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which width do you want ?"));
+				if(height <= 0 || width <= 0)
+				{
+					JOptionPane.showMessageDialog(null, "Invalid size");
+				}
+				else
+				{
 				drawPanel.eraseAll();
 				window.setSize(width, height);
 				window.setResizable(false);
+				}
 			}
 		});
 		
