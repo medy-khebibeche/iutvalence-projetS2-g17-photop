@@ -49,7 +49,7 @@ public class PhotopShapeTestCase extends TestCase {
 	 */
 	public void testPhotopShape() 
 	{
-		assertNotNull("L'instance est créée", photoShape);
+		assertNotNull("L'instance est crÃ©Ã©e", photoShape);
 	}
 
 	/**
