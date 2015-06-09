@@ -67,7 +67,7 @@ public class DrawPanel extends JPanel
 	
 	/**
 	 * Draws the selected image and all the PhotopShapes contain in the array
-	 * @param g
+	 * @param g graphics
 	 */
 	public void paintComponent(Graphics g) 
 	{
@@ -138,7 +138,7 @@ public class DrawPanel extends JPanel
 	
 	/**
 	 * Sets the pointer's color with a given color
-	 * @param color
+	 * @param c color
 	 */
 	public void setPointerColor(Color c)
 	{
@@ -147,7 +147,7 @@ public class DrawPanel extends JPanel
 	
 	/**
 	 * Sets the pointer's type with a given type
-	 * @param type
+	 * @param type type
 	 */
 	public void setPointerType(TypeShape type)
 	{
@@ -156,7 +156,7 @@ public class DrawPanel extends JPanel
 	
 	/**
 	 * Sets the pointer's image with a given image
-	 * @param image
+	 * @param image image
 	 */
 	public void setImage(Image image)
 	{
@@ -165,7 +165,7 @@ public class DrawPanel extends JPanel
 	
 	/**
 	 * Sets the pointer's size with a given size
-	 * @param size
+	 * @param size size
 	 */
 	public void setPointerSize(int size)
 	{

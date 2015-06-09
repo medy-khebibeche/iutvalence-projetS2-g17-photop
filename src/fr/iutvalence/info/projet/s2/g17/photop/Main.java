@@ -13,7 +13,7 @@ public class Main
 	
 	/**
 	 * The main of the application
-	 * @param args
+	 * @param args args
 	 */
 	public static void main(String[] args)
 	{

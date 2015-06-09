@@ -195,7 +195,7 @@ public class MenuBar extends JMenuBar
 	
 	/**
 	 * The constructor of the menubar
-	 * @param drawPanel
+	 * @param drawPanel drawPanel
 	 */
 	public MenuBar(DrawPanel drawPanel)
 	{
@@ -245,7 +245,7 @@ public class MenuBar extends JMenuBar
 	
 	/**
 	 * Initializes the MenuBar and adds ActionListener
-	 * @param window
+	 * @param window window
 	 */
 	public void initMenu(final JFrame window)
 	{	
@@ -397,7 +397,7 @@ public class MenuBar extends JMenuBar
 	
 	/**
 	 * Sets the imageName with a given String
-	 * @param showInputDialog
+	 * @param showInputDialog showInputDialog
 	 */
 	public void setImageName(String showInputDialog)
 	{
@@ -406,7 +406,7 @@ public class MenuBar extends JMenuBar
 	
 	/**
 	 * Sets the imagePath with a given String
-	 * @param path
+	 * @param path path
 	 */
 	public void setImagePath(String path)
 	{
@@ -415,7 +415,7 @@ public class MenuBar extends JMenuBar
 	
 	/**
 	 * Sets the currentImage with a given BufferedImage
-	 * @param createScreenCapture
+	 * @param createScreenCapture createScreenCapture
 	 */
 	public void setCurrentImage(BufferedImage createScreenCapture)
 	{
@@ -424,7 +424,7 @@ public class MenuBar extends JMenuBar
 	
 	/**
 	 * Sets the boolean imageAlreadySaved with a given boolean
-	 * @param b
+	 * @param b boolean
 	 */
 	public void setImageAlreadySaved(boolean b)
 	{

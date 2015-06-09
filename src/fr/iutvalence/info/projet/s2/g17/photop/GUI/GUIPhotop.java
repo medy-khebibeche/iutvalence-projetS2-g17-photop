@@ -34,7 +34,7 @@ public class GUIPhotop implements Runnable
 	
 	/**
 	 * the constructor of the GUI
-	 * @param photop
+	 * @param photop photop
 	 */
 	public GUIPhotop (Photop photop)
 	{

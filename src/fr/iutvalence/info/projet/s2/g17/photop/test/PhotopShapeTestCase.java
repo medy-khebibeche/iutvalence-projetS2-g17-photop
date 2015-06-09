@@ -20,7 +20,7 @@ public class PhotopShapeTestCase extends TestCase {
 	private Pointer pointer = new Pointer();
 
 	/**
-	 * @param name
+	 * @param name name 
 	 */
 	public PhotopShapeTestCase(String name) {
 		super(name);

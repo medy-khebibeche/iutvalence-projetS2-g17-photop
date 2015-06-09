@@ -49,7 +49,7 @@ public class Pointer
 	
 	/**
 	 * Sets the pointer's color with a given color
-	 * @param color
+	 * @param color color
 	 */
 	public void setColor(Color color)
 	{
@@ -58,7 +58,7 @@ public class Pointer
 	
 	/**
 	 * Sets the pointer's type with a given TypeShape
-	 * @param shape
+	 * @param shape shape
 	 */
 	public void setShape(TypeShape shape)
 	{
@@ -67,7 +67,7 @@ public class Pointer
 	
 	/**
 	 * Sets the pointer's size with a given size
-	 * @param size
+	 * @param size size
 	 */
 	public void setSize(int size)
 	{

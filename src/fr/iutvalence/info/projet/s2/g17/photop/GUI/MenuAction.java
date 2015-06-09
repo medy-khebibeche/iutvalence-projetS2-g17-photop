@@ -27,7 +27,7 @@ public class MenuAction
 	
 	/**
 	 * opens an image and display it in the drawPanel
-	 * @param menuBar 
+	 * @param menuBar menubar
 	 * @return actionListener
 	 */
 	public static ActionListener openImage(final MenuBar menuBar)
@@ -70,7 +70,7 @@ public class MenuAction
 	
 	/**
 	 * Erases the last pointer draw
-	 * @param menuBar
+	 * @param menuBar menuBar
 	 * @return actionListener
 	 */
 	public static ActionListener erase(final MenuBar menuBar)
@@ -88,7 +88,7 @@ public class MenuAction
 	
 	/**
 	 * Erases all the pointers contained in the drawPanel
-	 * @param menuBar
+	 * @param menuBar menubar
 	 * @return actionListener
 	 */
 	public static ActionListener eraseAll(final MenuBar menuBar)
@@ -106,7 +106,7 @@ public class MenuAction
 	
 	/**
 	 * Quits the application
-	 * @param menuBar
+	 * @param menuBar menubar
 	 * @return actionListener
 	 */
 	public static ActionListener quit(final MenuBar menuBar)
@@ -126,8 +126,8 @@ public class MenuAction
 	
 	/**
 	 * Saves the image and all the pointers contained in the drawpanel
-	 * @param menuBar
-	 * @return
+	 * @param menuBar menubar
+	 * @return ActionListener
 	 */
 	public static ActionListener saveImage(final MenuBar menuBar)
 	{
@@ -195,8 +195,8 @@ public class MenuAction
 	
 	/**
 	 * 
-	 * @param menuBar
-	 * @return
+	 * @param menuBar menubar
+	 * @return ActionListener
 	 */
 	public static ActionListener saveAsImage(final MenuBar menuBar)
 	{
@@ -242,9 +242,9 @@ public class MenuAction
 	
 	/**
 	 * Creates an image with a specific height and width and display it in the drawPanel
-	 * @param menuBar
-	 * @param window
-	 * @return ActionListener
+	 * @param menuBar menubar
+	 * @param window window
+	 * @return ActionListener actionListener
 	 */
 	public static ActionListener createImage(final MenuBar menuBar, final JFrame window)
 	{
@@ -272,8 +272,8 @@ public class MenuAction
 	
 	/**
 	 * Draws circle
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menubar
+	 * @return ActionListener actionlistener
 	 */
 	public static ActionListener circle(final MenuBar menuBar)
 	{
@@ -290,8 +290,8 @@ public class MenuAction
 	
 	/**
 	 * Draws square
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menubar
+	 * @return ActionListener actionlistener
 	 */
 	public static ActionListener square(final MenuBar menuBar)
 	{
@@ -308,8 +308,8 @@ public class MenuAction
 	
 	/**
 	 * Draws rectangle
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener rectangle(final MenuBar menuBar)
 	{
@@ -326,8 +326,8 @@ public class MenuAction
 	
 	/**
 	 * Draws triangle
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener triangle(final MenuBar menuBar)
 	{
@@ -344,8 +344,8 @@ public class MenuAction
 	
 	/**
 	 * Draws heart
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener heart(final MenuBar menuBar)
 	{
@@ -362,8 +362,8 @@ public class MenuAction
 	
 	/**
 	 * Draws the logo Photop
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener photop(final MenuBar menuBar)
 	{
@@ -380,8 +380,8 @@ public class MenuAction
 	
 	/**
 	 * Change the pointer's color to white
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener white(final MenuBar menuBar)
 	{
@@ -394,8 +394,8 @@ public class MenuAction
 	
 	/**
 	 * Change the pointer's color to yellow
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener yellow(final MenuBar menuBar)
 	{
@@ -408,8 +408,8 @@ public class MenuAction
 	
 	/**
 	 * Change the pointer's color to orange
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener orange(final MenuBar menuBar)
 	{
@@ -422,8 +422,8 @@ public class MenuAction
 	
 	/**
 	 * Change the pointer's color to red
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener red(final MenuBar menuBar)
 	{
@@ -436,8 +436,8 @@ public class MenuAction
 	
 	/**
 	 * Change the pointer's color to magenta
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener magenta(final MenuBar menuBar)
 	{
@@ -450,8 +450,8 @@ public class MenuAction
 	
 	/**
 	 * Change the pointer's color to blue
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener blue(final MenuBar menuBar)
 	{
@@ -464,8 +464,8 @@ public class MenuAction
 	
 	/**
 	 * Change the pointer's color to green
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener green(final MenuBar menuBar)
 	{
@@ -478,8 +478,8 @@ public class MenuAction
 	
 	/**
 	 * Change the pointer's color to black
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener black(final MenuBar menuBar)
 	{
@@ -492,8 +492,8 @@ public class MenuAction
 	
 	/**
 	 * Increases the Poinster's size
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener increaseSize(final MenuBar menuBar)
 	{
@@ -510,8 +510,8 @@ public class MenuAction
 	
 	/**
 	 * Decreases the Poinster's size
-	 * @param menuBar
-	 * @return ActionListener
+	 * @param menuBar menuBar
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener decreaseSize(final MenuBar menuBar)
 	{
@@ -528,8 +528,7 @@ public class MenuAction
 	
 	/**
 	 * Opens a window about us
-	 * @param menuBar
-	 * @return ActionListener
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener aboutUs()
 	{
@@ -546,8 +545,7 @@ public class MenuAction
 	
 	/**
 	 * Opens a window about photop
-	 * @param menuBar
-	 * @return ActionListener
+	 * @return ActionListener ActionListener
 	 */
 	public static ActionListener aboutPhotop()
 	{

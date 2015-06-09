@@ -19,7 +19,7 @@ public class PointerTestCase extends TestCase {
 	private Pointer pointer1;
 
 	/**
-	 * @param name
+	 * @param name name
 	 */
 	public PointerTestCase(String name) 
 	{

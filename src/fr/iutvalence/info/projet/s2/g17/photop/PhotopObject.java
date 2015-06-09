@@ -39,7 +39,7 @@ public abstract class PhotopObject
 	
 	/**
 	 * Sets a new position to the object
-	 * @param objectPosition
+	 * @param objectPosition objectPosition
 	 */
 	public void setObjectPosition(Position objectPosition)
 	{
@@ -48,7 +48,7 @@ public abstract class PhotopObject
 	
 	/**
 	 * gets the dimension of the object
-	 * @return objectDimension
+	 * @return objectDimension objectDimension
 	 */
 	public int getObjectDimension()
 	{
@@ -57,7 +57,7 @@ public abstract class PhotopObject
 	
 	/**
 	 * sets the new dimension to the object
-	 * @param objectDimension
+	 * @param objectDimension objectDimension
 	 */
 	public void setObjectDimension(int objectDimension)
 	{

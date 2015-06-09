@@ -15,7 +15,7 @@ public class PositionTestCase extends TestCase {
 	private Position position ;
 
 	/**
-	 * @param name
+	 * @param name name
 	 */
 	public PositionTestCase(String name) {
 		super(name);

@@ -4,8 +4,8 @@ import fr.iutvalence.info.projet.s2.g17.photop.GUI.GUIPhotop;
 
 
 /**
- * Photop' is a photo editing software</br>
- * Features :</br>
+ * Photop' is a photo editing software
+ * Features :
  *  <ul>
  *  	<li>open an image</li>
  *  	<li>create an image</li>
@@ -30,7 +30,7 @@ public class Photop
 	
 	/**
 	 * The association of the GUI and the application
-	 * @param guiPhotop
+	 * @param guiPhotop guiPhotop
 	 */
 	public void GUIAssociation(GUIPhotop guiPhotop)
 	{

@@ -21,7 +21,7 @@ public class PhotopShape extends PhotopObject
 	 * The constructor of the shape
 	 * @param x the coordinate on the X axe
 	 * @param y the coordinate on the Y axe
-	 * @param point
+	 * @param point point
 	 */
 	public PhotopShape(int x, int y, Pointer point)
 	{
@@ -42,7 +42,7 @@ public class PhotopShape extends PhotopObject
 	
 	/**
 	 * sets a new color to the shape
-	 * @param color
+	 * @param color color
 	 */
 	public void setColor(Color color) 
 	{
@@ -51,7 +51,7 @@ public class PhotopShape extends PhotopObject
 	
 	/**
 	 * Gets the type of the shape
-	 * @return type
+	 * @return type type
 	 */
 	public TypeShape getType() 
 	{
@@ -60,7 +60,7 @@ public class PhotopShape extends PhotopObject
 	
 	/**
 	 * Sets a new type to the shape
-	 * @param type
+	 * @param type type
 	 */
 	public void setType(TypeShape type) 
 	{
