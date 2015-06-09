@@ -3,6 +3,7 @@ package fr.iutvalence.info.projet.s2.g17.photop.GUI;
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Menu;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -10,8 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -241,325 +244,61 @@ public class MenuBar extends JMenuBar
 	}
 	
 	/**
-	 * Initializes the MenuBar and adds ActionListener and ActionPerformed
+	 * Initializes the MenuBar and adds ActionListener
 	 * @param window
 	 */
 	public void initMenu(final JFrame window)
 	{	
-		openImage.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				JFileChooser fileExplorer = new JFileChooser();
-				int result = fileExplorer.showOpenDialog(null);
-				if (result == JFileChooser.APPROVE_OPTION) 
-				{
-					File file = fileExplorer.getSelectedFile();
-					try 
-					{
-						Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-						double screenWidth = screenSize.getWidth();
-						double screenHeight = screenSize.getHeight();
-						if(ImageIO.read(file).getWidth() > screenWidth || ImageIO.read(file).getHeight() > screenHeight )
-						{
-							JOptionPane.showMessageDialog(null, "Image resolution is too big.");
-						}
-						else
-						{
-							drawPanel.setImage(ImageIO.read(file));
-							System.out.println(fileExplorer.getSelectedFile().getName());
-						}
-					} 
-					catch (IOException ex) 
-					{
-						ex.printStackTrace();
-					}
-					return;
-				}						
-			}
-		});
+		openImage.addActionListener(MenuAction.openImage(this));
 		
-		erase.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.erase();				
-			}
-		});
+		erase.addActionListener(MenuAction.erase(this));
 		
-		eraseAll.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.eraseAll();
-			}
-		});
+		eraseAll.addActionListener(MenuAction.eraseAll(this));
 		
-		quit.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				if (JOptionPane.showConfirmDialog(null, "Do you really want to quit Photop ?", "Confirmation", JOptionPane.OK_CANCEL_OPTION,
-						JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
-					System.exit(0);				
-			}
-		});
+		quit.addActionListener(MenuAction.quit(this));
 		
-		saveImage.addActionListener(new ActionListener()
-		{
-			
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				JFileChooser directoryChooser = new JFileChooser();
-				directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				
-				if(imageAlreadySaved)
-				{
-					try
-					{
-						ImageIO.write( currentImage, "PNG", new File(imagePath+"/"+imageName+".PNG"));
-					} 
-					catch (IOException e1)
-					{
-						e1.printStackTrace();
-					}
-					JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
-				} 
-				else
-				{
-					imageName = JOptionPane.showInputDialog(drawPanel,"Name of the image ?");
-					
-					if(imageName != null)
-					{
-						if(directoryChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
-						{
-							imagePath = directoryChooser.getSelectedFile().getPath();
-							try
-							{
-								try
-								{
-									currentImage = new Robot().createScreenCapture(new Rectangle(drawPanel.getLocationOnScreen().x, drawPanel.getLocationOnScreen().y, drawPanel.getWidth(), drawPanel.getHeight()));
-									ImageIO.write(currentImage, "PNG", new File(imagePath+"/"+imageName+".PNG"));
-									JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
-									imageAlreadySaved = true;
-								} 
-								catch (AWTException e1)
-								{
-									e1.printStackTrace();
-								}
-							} 
-							catch (IOException e1)
-							{
-								e1.printStackTrace();
-							}
-						}
-					}
-				}
-			}
-		});
+		saveImage.addActionListener(MenuAction.saveImage(this));
 		
-		saveAsImage.addActionListener(new ActionListener()
-		{
-			
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				JFileChooser directoryChooser = new JFileChooser();
-				directoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				imageName = JOptionPane.showInputDialog(drawPanel,"Name of the image ?");
-				
-				if(imageName != null)
-				{
-					if(directoryChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
-					{
-						imagePath = directoryChooser.getSelectedFile().getPath();
-						try
-						{
-							try
-							{
-								currentImage = new Robot().createScreenCapture(new Rectangle(drawPanel.getLocationOnScreen().x, drawPanel.getLocationOnScreen().y, drawPanel.getWidth(), drawPanel.getHeight()));
-								ImageIO.write(currentImage, "PNG", new File(imagePath+"/"+imageName+".PNG"));
-								JOptionPane.showMessageDialog(null, "Image "+imageName+".png saved !");
-								imageAlreadySaved = true;
-							} 
-							catch (AWTException e1)
-							{
-								e1.printStackTrace();
-							}
-						} 
-						catch (IOException e1)
-						{
-							e1.printStackTrace();
-						}
-					}
-				}
-				
-			}
-		});
+		saveAsImage.addActionListener(MenuAction.saveAsImage(this));
 		
-		createImage.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int height = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which height do you want ?"));
-				int width = Integer.parseInt(new JOptionPane().showInputDialog(null,"Which width do you want ?"));
-				if(height <= 0 || width <= 0)
-				{
-					JOptionPane.showMessageDialog(null, "Invalid size");
-				}
-				else
-				{
-				drawPanel.eraseAll();
-				window.setSize(width, height);
-				window.setResizable(false);
-				}
-			}
-		});
+		createImage.addActionListener(MenuAction.createImage(this,window));
 		
-		circle.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.setPointerType(TypeShape.CIRCLE);				
-			}
-		});
+		circle.addActionListener(MenuAction.circle(this));
 		
-		square.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.setPointerType(TypeShape.SQUARE);				
-			}
-		});
+		square.addActionListener(MenuAction.square(this));
 		
-		rectangle.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.setPointerType(TypeShape.RECTANGLE);				
-			}
-		});
+		rectangle.addActionListener(MenuAction.rectangle(this));
 		
-		triangle.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.setPointerType(TypeShape.TRIANGLE);				
-			}
-		});
+		triangle.addActionListener(MenuAction.triangle(this));
 		
-		white.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				drawPanel.setPointerColor(Color.white);
-			}});
+		heart.addActionListener(MenuAction.heart(this));
 		
-		yellow.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				drawPanel.setPointerColor(Color.yellow);
-			}});
+		photop.addActionListener(MenuAction.photop(this));
 		
-		orange.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				drawPanel.setPointerColor(Color.orange);
-			}});
+		white.addActionListener(MenuAction.white(this));
 		
-		red.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				drawPanel.setPointerColor(Color.red);
-			}});
+		yellow.addActionListener(MenuAction.yellow(this));
 		
-		magenta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				drawPanel.setPointerColor(Color.magenta);
-			}});
+		orange.addActionListener(MenuAction.orange(this));
 		
-		blue.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				drawPanel.setPointerColor(Color.blue);
-			}});
+		red.addActionListener(MenuAction.red(this));
 		
-		green.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				drawPanel.setPointerColor(Color.green);
-			}});
+		magenta.addActionListener(MenuAction.magenta(this));
 		
-		black.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				drawPanel.setPointerColor(Color.black);
-			}});
+		blue.addActionListener(MenuAction.blue(this));
 		
-		aboutPhotop.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				JOptionPane.showMessageDialog(null, "Welcome on Photop !");				
-			}
-		});
+		green.addActionListener(MenuAction.green(this));
 		
-		aboutUs.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				JOptionPane.showMessageDialog(null, "Creators : \n Mathie BERTHOLET - M�dy KHEBIBECHE - Jean-Baptiste MERCIER - Bastien PLANEILLE - Corentin VALLIER");				
-			}
-		});
+		black.addActionListener(MenuAction.black(this));
 		
-		heart.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.setPointerType(TypeShape.HEART);
-			}
-		});
+		aboutPhotop.addActionListener(MenuAction.aboutPhotop());
 		
-		photop.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.setPointerType(TypeShape.PHOTOP);
-			}
-		});
+		aboutUs.addActionListener(MenuAction.aboutUs());
 		
-		increaseSize.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.setPointerSize(10);
-			}
-		});
+		increaseSize.addActionListener(MenuAction.increaseSize(this));
 		
-		decreaseSize.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				drawPanel.setPointerSize(-10);
-			}
-		});
+		decreaseSize.addActionListener(MenuAction.decreaseSize(this));
 		
-		heart.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				
-			}
-		});
 		
 		file.add(openImage);
 		openImage.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_DOWN_MASK));
@@ -572,7 +311,6 @@ public class MenuBar extends JMenuBar
 		erase.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, KeyEvent.CTRL_DOWN_MASK));
 		file.add(eraseAll);
 		eraseAll.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, KeyEvent.CTRL_DOWN_MASK));;
-		
 		file.addSeparator();
 		file.add(quit);
 		quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_DOWN_MASK));
@@ -606,10 +344,90 @@ public class MenuBar extends JMenuBar
 		about.add(aboutPhotop);
 		about.add(aboutUs);
 		
-		
 		menuBar.add(file);
 		menuBar.add(edition);
 		menuBar.add(about);
 		window.setJMenuBar(menuBar);
+	}
+	
+	/**
+	 * Returns the drawPanel
+	 * @return drawPanel
+	 */
+	public DrawPanel getDrawPanel()
+	{
+		return this.drawPanel;
+	}
+	
+	/**
+	 * Returns the boolean imageAlreadySaved
+	 * @return imageAlreadySaved
+	 */
+	public boolean getImageAlreadySaved()
+	{
+		return this.imageAlreadySaved;
+	}
+	
+	/**
+	 * Returns the imagePath
+	 * @return imagePath
+	 */
+	public String getImagePath()
+	{
+		return this.imagePath;
+	}
+	
+	/**
+	 * Returns the currentImage
+	 * @return currentImage
+	 */
+	public RenderedImage getCurrentImage()
+	{
+		return this.currentImage;
+	}
+	
+	/**
+	 * Returns the imageName
+	 * @return imageName
+	 */
+	public String getImageName()
+	{
+		return this.imageName;
+	}
+	
+	/**
+	 * Sets the imageName with a given String
+	 * @param showInputDialog
+	 */
+	public void setImageName(String showInputDialog)
+	{
+		this.imageName = showInputDialog;
+	}
+	
+	/**
+	 * Sets the imagePath with a given String
+	 * @param path
+	 */
+	public void setImagePath(String path)
+	{
+		this.imagePath = path;
+	}
+	
+	/**
+	 * Sets the currentImage with a given BufferedImage
+	 * @param createScreenCapture
+	 */
+	public void setCurrentImage(BufferedImage createScreenCapture)
+	{
+		this.currentImage = createScreenCapture;
+	}
+	
+	/**
+	 * Sets the boolean imageAlreadySaved with a given boolean
+	 * @param b
+	 */
+	public void setImageAlreadySaved(boolean b)
+	{
+		this.imageAlreadySaved = b;
 	}
 }
