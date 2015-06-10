@@ -144,6 +144,7 @@ public class MenuAction
 				{
 					try
 					{
+						JOptionPane.showMessageDialog(null, "Saving in progress");
 						menuBar.setCurrentImage(new Robot().createScreenCapture(new Rectangle(menuBar.getDrawPanel().getLocationOnScreen().x, menuBar.getDrawPanel().getLocationOnScreen().y, menuBar.getDrawPanel().getWidth(), menuBar.getDrawPanel().getHeight())));
 						ImageIO.write(menuBar.getCurrentImage(), "PNG", new File(menuBar.getImagePath()+"/"+menuBar.getImageName()+".PNG"));
 						JOptionPane.showMessageDialog(null, "Image "+menuBar.getImageName()+".png saved !");
