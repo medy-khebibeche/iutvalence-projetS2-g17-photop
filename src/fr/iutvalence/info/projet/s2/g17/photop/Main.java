@@ -24,7 +24,6 @@ public class Main
 		photop.GUIAssociation(guiPhotop);
 		
 		SwingUtilities.invokeLater(guiPhotop);
-		
 	}
 	
 }
