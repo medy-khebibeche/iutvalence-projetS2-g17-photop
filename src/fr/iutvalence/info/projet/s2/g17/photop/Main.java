@@ -18,13 +18,9 @@ public class Main
 	public static void main(String[] args)
 	{
 		Photop photop = new Photop();
-		
 		GUIPhotop guiPhotop = new GUIPhotop(photop);	
-		
 		photop.GUIAssociation(guiPhotop);
-		
 		SwingUtilities.invokeLater(guiPhotop);
-		
 	}
 	
 }
